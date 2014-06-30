@@ -6,4 +6,6 @@ version := "1.99.1-SNAPSHOT"
 
 scalaVersion := "2.10.4"
 
+resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
+
 libraryDependencies += "uk.ac.ed.inf" %% "mois" % "1.99.1-SNAPSHOT"
