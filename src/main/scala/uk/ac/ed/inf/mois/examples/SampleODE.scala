@@ -1,4 +1,4 @@
-package uk.ac.ed.inf.mois.examples.sample
+package uk.ac.ed.inf.mois.examples
 
 import uk.ac.ed.inf.mois.sbt.MoisMain
 import uk.ac.ed.inf.mois.{ProcessODE, State, Var}
