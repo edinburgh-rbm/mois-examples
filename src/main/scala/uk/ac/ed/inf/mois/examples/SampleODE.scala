@@ -3,7 +3,7 @@ package uk.ac.ed.inf.mois.examples
 import uk.ac.ed.inf.mois.sbt.MoisMain
 import uk.ac.ed.inf.mois.{ProcessODE, State, Var}
 
-object sampleODE extends ProcessODE("sample") {
+object sampleODE extends ProcessODE("SampleODE") {
   integral(
     Var(25.0, "ex:x1"),
     Var(50.0, "ex:x2")
