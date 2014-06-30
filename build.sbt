@@ -14,6 +14,8 @@ libraryDependencies += "uk.ac.ed.inf" %% "mois-sbt" % "1.99.2-SNAPSHOT"
 // public repositories. It -- or something like it -- is necessary
 // for easy sharing and reuse of models.
 
+crossScalaVersions := Seq("2.11.1", "2.10.4")
+
 publishTo := {
   val nexus = "https://oss.sonatype.org/"
   if (version.value.trim.endsWith("SNAPSHOT"))
