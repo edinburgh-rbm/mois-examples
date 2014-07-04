@@ -1,6 +1,6 @@
 package uk.ac.ed.inf.mois.examples
 
-import uk.ac.ed.inf.mois.sbt.MoisMain
+import uk.ac.ed.inf.mois.MoisMain
 import uk.ac.ed.inf.mois.{ProcessODE, State, Var}
 
 object sampleODE extends ProcessODE("SampleODE") {
@@ -14,8 +14,10 @@ object sampleODE extends ProcessODE("SampleODE") {
   }
 }
 
-final class SampleODEModel extends MoisMain {
+object SampleODEModel extends MoisMain {
+  val name = "Sample ODE Model"
   val state = new State
+  // default initial conditions
   state := Var(25.0, "ex:x1")
   state := Var(50.0, "ex:x2")
   val process = sampleODE

@@ -8,7 +8,7 @@ scalaVersion := "2.11.1"
 
 resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
 
-libraryDependencies += "uk.ac.ed.inf" %% "mois-sbt" % "1.99.2-SNAPSHOT"
+libraryDependencies += "uk.ac.ed.inf" %% "mois" % "1.99.2-SNAPSHOT"
 
 libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.0" % "test"
 
@@ -43,7 +43,7 @@ pomExtra := (
   </licenses>
   <scm>
     <url>git@github.com:edinburgh-rbm/mois.git</url>
-    <connection>scm:git:git@github.com:edinburgh-rbm/mois.git</connection>
+    <connection>scm:git:git@github.com:edinburgh-rbm/mois-examples.git</connection>
   </scm>
   <developers>
     <developer>
