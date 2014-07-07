@@ -1,24 +1,20 @@
 package uk.ac.ed.inf.mois.examples
 
 import uk.ac.ed.inf.mois.MoisMain
-import uk.ac.ed.inf.mois.{ProcessODE, State, Var}
+import uk.ac.ed.inf.mois.ProcessODE
+import uk.ac.ed.inf.mois.sched
 
 object sampleODE extends ProcessODE("SampleODE") {
-  integral(
-    Var(25.0, "ex:x1"),
-    Var(50.0, "ex:x2")
-  )
-  def computeDerivatives(t: Double, y: Array[Double], ẏ: Array[Double]) {
-    ẏ(0) = -0.3*y(0) - 0.4*y(1)
-    ẏ(1) = -0.5*y(0) - 0.8*y(1)
-  }
+  val x1 = Double("ex:x1")
+  val x2 = Double("ex:x2")
+  d(x1) := -0.3*x1 - 0.4*x2
+  d(x2) := -0.5*x1 - 0.8*x2
 }
 
-object SampleODEModel extends MoisMain {
-  val name = "Sample ODE Model"
-  val state = new State
-  // default initial conditions
-  state := Var(25.0, "ex:x1")
-  state := Var(50.0, "ex:x2")
-  val process = sampleODE
+object SampleODEModel extends MoisMain("Sample ODE Model") {
+  val model = sampleODE
+  import model._
+
+  Double("ex:x1") := 25.0
+  Double("ex:x2") := 50.0
 }
