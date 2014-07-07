@@ -1,10 +1,10 @@
 package uk.ac.ed.inf.mois.examples
 
 import uk.ac.ed.inf.mois.MoisMain
-import uk.ac.ed.inf.mois.ProcessODE
+import uk.ac.ed.inf.mois.OrdinaryProcess
 import uk.ac.ed.inf.mois.sched
 
-object sampleODE extends ProcessODE("SampleODE") {
+object sampleODE extends OrdinaryProcess("SampleODE") {
   val x1 = Double("ex:x1")
   val x2 = Double("ex:x2")
   d(x1) := -0.3*x1 - 0.4*x2

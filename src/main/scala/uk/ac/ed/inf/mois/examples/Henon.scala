@@ -10,7 +10,7 @@ case class Hénon(a: Double, b: Double) extends DiscreteProcess("Henon") {
   n(y) := b * x
 }
 
-object HénonModel extends MoisMain("Sample ODE Model") {
+object HénonModel extends MoisMain("Hénon Model") {
   val model = new Hénon(1.4, 0.3)
   import model._
 
