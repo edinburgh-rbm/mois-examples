@@ -41,6 +41,6 @@ object HénonModel extends MoisMain("Hénon Model") {
 The $n(x)$ operator denotes the value of $x$ at the next time, that is
 at $t+1$.
 
-Graphing the output we have
+Running the model for 25000 time steps and graphing the output produces:
 
 ![graphic of Henon map](henon.png)
