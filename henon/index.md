@@ -12,8 +12,8 @@ equations:
 
 $$
 \begin{aligned}
-x_{n+1} &= 1 - ax_n^2 + y_n \\
-y_{n+1} &= bx_n
+x_{t+1} &= 1 - ax_t^2 + y_t \\
+y_{t+1} &= bx_t
 \end{aligned}
 $$
 
