@@ -12,7 +12,7 @@ equations:
 
 $$
 \begin{aligned}
-x_{n+1} &= 1 - ax_n^2 + y_n \\
+x_{n+1} &= 1 - ax_n^2 + y_n \\\\
 y_{n+1} &= bx_n
 \end{aligned}
 $$
