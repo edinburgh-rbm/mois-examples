@@ -30,7 +30,7 @@ looks like
 [this](https://github.com/edinburgh-rbm/mois-examples/blob/master/examples/roessler.properties).
 It can then be downloaded and run like so:
 
-```
+~~~~~
 % sbt @roessler.properties
 Getting uk.ac.ed.inf mois-examples_2.11 1.99.2-SNAPSHOT ...
 downloading ...
@@ -51,21 +51,22 @@ Usage: Roessler Model [options]
         Timeseries output format (default: tsv)
   -o <value> | --output <value>
         Output file (default: stdout)
-```
+~~~~~
 
 The helpful message displayed says that at the very least a duration
 is required for the simulation. It is probably a good idea to specify
 an output file for the generated data as well because otherwise it
 will simply be printed in the terminal. For example,
 
-```sbt @roessler.properties --duration 1000 --output roessler.tsv
-```
+~~~~~
+sbt @roessler.properties --duration 1000 --output roessler.tsv
+~~~~~
 
 The other way is to obtain a copy of the source code and run *sbt* on
 its own. From the interactive shell it is possible to simply use the
 *run* command, with arguments as above:
 
-```
+~~~~~
 % sbt
 > run --duration 1000 --output roessler.tsv
 [info] Updating {file:.../mois-examples/}mois-examples...
@@ -84,7 +85,7 @@ Enter number: 3
 [info] Running uk.ac.ed.inf.mois.examples.RoesslerModel -d 1000 -o roessler.tsv
 [success] Total time: 28 s, completed Jul 8, 2014 10:53:57 PM
 >
-```
+~~~~~
 
 If more than one model is available, an opportunity to pick the
 desired one is presented.
