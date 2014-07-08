@@ -46,4 +46,5 @@ the time derivative of $x$ with respect to $t$ as might be supposed.
 Running the model for 1000 time steps and graphing the output with
 gnuplot produces:
 
-![graphic of Roessler attractor](roessler.png)
+![Roessler attractor](roessler.png)
+
