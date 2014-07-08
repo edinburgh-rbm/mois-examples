@@ -17,3 +17,4 @@ y_{n+1} &= bx_n
 \end{aligned}
 $$
 
+{% gist wwaites/3dad1ba868a6ea560b38 henon.scala %}
