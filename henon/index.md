@@ -17,7 +17,7 @@ y_{n+1} &= bx_n
 \end{aligned}
 $$
 
-{% hilight scala %}
+{% highlight scala %}
 import uk.ac.ed.inf.mois.MoisMain
 import uk.ac.ed.inf.mois.DiscreteProcess
 
@@ -31,4 +31,4 @@ case class Hénon(a: Double, b: Double) extends DiscreteProcess("Henon") {
 object HénonModel extends MoisMain("Hénon Model") {
   val model = new Hénon(1.4, 0.3)
 }
-{% endhilight %}
+{% endhighlight %}
