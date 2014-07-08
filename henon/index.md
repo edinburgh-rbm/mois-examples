@@ -17,4 +17,18 @@ y_{n+1} &= bx_n
 \end{aligned}
 $$
 
-{% gist wwaites/3dad1ba868a6ea560b38 henon.scala %}
+{% hilight scala %}
+import uk.ac.ed.inf.mois.MoisMain
+import uk.ac.ed.inf.mois.DiscreteProcess
+
+case class Hénon(a: Double, b: Double) extends DiscreteProcess("Henon") {
+  val x = Double("ex:x")
+  val y = Double("ex:y")
+  n(x) := 1.0 - a * x*x + y
+  n(y) := b * x
+}
+
+object HénonModel extends MoisMain("Hénon Model") {
+  val model = new Hénon(1.4, 0.3)
+}
+{% endhilight %}
