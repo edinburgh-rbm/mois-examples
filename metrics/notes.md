@@ -108,10 +108,14 @@ $$
 \vec{u} \cdot \vec{v} = \sum_i \sum_j \delta_{ij} u^i v^j
 $$
 
-Nothing's really changed here, $\delta_{ij}$ is just our normal
+Nothing's really changed here, 
+$\delta_{ij}$
+is just our normal
 Kronecker delta that is 1 if $i = j$ and 0 otherwise. But what if it
 wasn't? We know more about our metric tensor now. We know it fits in
-the same place as $\delta_{ij}$. So let's go ahead and write down
+the same place as
+$\delta_{ij}$.
+So let's go ahead and write down
 something similar, where everything is expressed in some other
 curvilinear coordinate system
 
