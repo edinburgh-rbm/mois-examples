@@ -164,7 +164,7 @@ $$
 \sum_i \sum_j \sum_k g_{ij} \epsilon_{jkl} u^k v^l
 $$
 
-The effect of applying a metric tensor this way (``applying'' means
+The effect of applying a metric tensor this way ("applying" means
 summing over its second index) is a kind of a distance preserving
 coordinate transformation.
 
@@ -179,7 +179,8 @@ products) stay the same no matter how you transform. So if you go to a
 coordinate system that stretches in the $x$ direction, assigns a
 bigger number to that component, the metric tensor has to compensate
 and assign a smaller number to the bit of the length sum that comes
-from the corresponding components in the transformed vector.
+from the corresponding components in the transformed vector. So we
+call it contravariant.
 
 A historical note is that this mathematics came to physics with
 general relativity. Special relativity can be worked out with high
