@@ -154,7 +154,7 @@ this is a bit of a beast with lots of sums, but rearranging isn't that
 hard, and we get that
 
 $$
-g_{ij} = \frac{\partial x_i}{\partial x_j^\prime}
+g_{ij} = \frac{\partial x^i}{\partial x^{j\prime}}
 $$
 
 In a similar way we do cross products,
