@@ -165,8 +165,29 @@ $$
 $$
 
 The effect of applying a metric tensor this way (``applying'' means
-summing over its second index) is a distance preserving coordinate
-transofrmation.
+summing over its second index) is a kind of a distance preserving
+coordinate transformation.
+
+Whether we put the indices on the top or the bottom depends on whether
+coordinate transformations happens in a covariant (top) or
+contravariant (bottom) way. Normally vectors are covariant things. If
+you make the vector bigger in some direction, you would expect its
+representation in another coordinate system also to get bigger.
+
+The metric tensor is the opposite. It's supposed to make lengths (dot
+products) stay the same no matter how you transform. So if you go to a
+coordinate system that stretches in the $x$ direction, assigns a
+bigger number to that component, the metric tensor has to compensate
+and assign a smaller number to the bit of the length sum that comes
+from the corresponding components in the transformed vector.
+
+A historical note is that this mathematics came to physics with
+general relativity. Special relativity can be worked out with high
+school algebra, but in general relativity, there was a distance
+quantity that needed to be conserved under acceleration and there was
+no way to make it work with euclidean coordinates. So the idea was
+that it could be worked out with curvilinear coordinates and that this
+metric tensor arranges so that the distances stay the same.
 
 It's also hopefully clear why it's good to use the summation
 convention and drop all of the annoying sigmas.
