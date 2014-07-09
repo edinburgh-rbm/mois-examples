@@ -109,14 +109,12 @@ $$
 $$
 
 Nothing has really changed here, 
-\\(\delta_{ij}\\)
-is just our normal
+the delta is just our normal
 Kronecker delta that is 1 if
 \\(i = j\\)
 and 0 otherwise. But what if it
 wasn't? We know more about our metric tensor now. We know it fits in
-the same place as
-\\(\delta_{ij}\\).
+the same place as the delta.
 So let's go ahead and write down
 something similar, where everything is expressed in some other
 curvilinear coordinate system
