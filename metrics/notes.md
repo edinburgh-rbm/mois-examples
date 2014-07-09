@@ -72,9 +72,9 @@ help us do this, a permutation symbol named after Levi-Civita (who was
 a mathematician that wrote one of the main early works in this area,
 the somewhat starkly titled "The Absolute Differential Calculus").
 
-Anyways, this symbol $\epsilon_{ijkl...}$ is 1 if the indices are an even
-permutation of (1,2,3,4...), -1 if it is odd, and zero if any are
-repeated. With this thing, 
+Anyways, this symbol $\epsilon_{ijkl...}$ is 1 if the indices are an
+even permutation of (1,2,3,4...), -1 if it is odd, and zero if any
+indices are repeated. With this thing,
 
 $$
   \vec{u} \times \vec{v} = \sum_j \sum_k \epsilon_{ijk} u^j v^k
