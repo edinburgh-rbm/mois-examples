@@ -154,9 +154,9 @@ this is a bit of a beast with lots of sums, but rearranging isn't that
 hard, and we get that
 
 $$
-g_{ij} = \frac{\partial x^i}{\partial y^b}
-         \frac{\partial x^j}{\partial y^b}
-	 \delta_{ij}
+g_{ij} = \frac{\partial x^a}{\partial y^i}
+         \frac{\partial x^b}{\partial y^j}
+	 \delta_{ab}
 $$
 
 In a similar way we do cross products,
