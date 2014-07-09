@@ -128,12 +128,12 @@ different coordinates, so we can write,
 
 $$
 \begin{aligned}
-  n^i &= \sum_j \frac{\partial x^{i\prime}}{\partial x^j} u^j\\
-  m^i &= \sum_j \frac{\partial x^{i\prime}}{\partial x^j} v^j
+  n^i &= \sum_j \frac{\partial y^i}{\partial x^j} u^j\\
+  m^i &= \sum_j \frac{\partial y^i}{\partial x^j} v^j
 \end{aligned}
 $$
 
-where $x_i$ are the old rectilinear coordinates and $x_i^\prime$ are
+where $x_i$ are the old rectilinear coordinates and $y_i$ are
 the new curvilinear ones. We want to make sure that
 
 $$
@@ -145,8 +145,8 @@ so,
 $$
 \sum_i\sum_j g_{ij}n^im^j =
 \sum_i\sum_j\sum_k\sum_l g_{ij}
-\frac{\partial x^{i\prime}}{\partial x^k}u^k
-\frac{\partial x^{j\prime}}{\partial x^l}v^l
+\frac{\partial y^i}{\partial x^k}u^k
+\frac{\partial y^j}{\partial x^l}v^l
 = \sum_i\sum_j \delta_{ij} u^iu^j
 $$
 
@@ -154,7 +154,7 @@ this is a bit of a beast with lots of sums, but rearranging isn't that
 hard, and we get that
 
 $$
-g_{ij} = \frac{\partial x^i}{\partial x^{j\prime}}
+g_{ij} = \frac{\partial x^i}{\partial y^j}
 $$
 
 In a similar way we do cross products,
