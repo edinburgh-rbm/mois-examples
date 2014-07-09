@@ -146,7 +146,7 @@ $$
 \sum_i\sum_j g_{ij}n^im^j =
 \sum_i\sum_j\sum_k\sum_l g_{ij}
 \frac{\partial x^{i\prime}}{\partial x^k}u^k
-\frac{\partial x_{j\prime}}{\partial x^l}v^l
+\frac{\partial x^{j\prime}}{\partial x^l}v^l
 = \sum_i\sum_j \delta_{ij} u^iu^j
 $$
 
