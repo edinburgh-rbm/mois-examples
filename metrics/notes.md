@@ -128,8 +128,8 @@ different coordinates, so we can write,
 
 $$
 \begin{aligned}
-  n^i &= \sum_j \frac{\partial x_i^\prime}{\partial x_j} u^j\\
-  m^i &= \sum_j \frac{\partial x_i^\prime}{\partial x_j} v^j
+  n^i &= \sum_j \frac{\partial x^{i\prime}}{\partial x^j} u^j\\
+  m^i &= \sum_j \frac{\partial x^{i\prime}}{\partial x^j} v^j
 \end{aligned}
 $$
 
@@ -145,8 +145,8 @@ so,
 $$
 \sum_i\sum_j g_{ij}n^im^j =
 \sum_i\sum_j\sum_k\sum_l g_{ij}
-\frac{\partial x_i^\prime}{\partial x_k}u^k
-\frac{\partial x_j^\prime}{\partial x_l}v^l
+\frac{\partial x^{i\prime}}{\partial x^k}u^k
+\frac{\partial x_{j\prime}}{\partial x^l}v^l
 = \sum_i\sum_j \delta_{ij} u^iu^j
 $$
 
