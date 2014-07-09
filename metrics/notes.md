@@ -13,7 +13,7 @@ hand-wavy but hopefully might give a useful insight into metric
 tensors.*
 
 Afterwards, I asked what the difference between an outer product and a
-tensor product, and wrote on the board something that looked like
+tensor product is, and wrote on the board something that looked like
 high-school linear algebra
 
 $$
@@ -154,7 +154,9 @@ this is a bit of a beast with lots of sums, but rearranging isn't that
 hard, and we get that
 
 $$
-g_{ij} = \frac{\partial x^i}{\partial y^j}
+g_{ij} = \frac{\partial x^i}{\partial y^b}
+         \frac{\partial x^j}{\partial y^b}
+	 \delta_{ij}
 $$
 
 In a similar way we do cross products,
