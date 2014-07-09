@@ -133,7 +133,7 @@ $$
 \end{aligned}
 $$
 
-where $x_i$ are the old rectilinear coordinates and $y_i$ are
+where $x^i$ are the old rectilinear coordinates and $y^i$ are
 the new curvilinear ones. We want to make sure that
 
 $$
