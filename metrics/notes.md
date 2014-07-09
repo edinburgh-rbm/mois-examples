@@ -125,18 +125,23 @@ $$
 
 we want that they are the "same" vectors just represented with
 different coordinates, so we can write,
+
 $$
 \begin{aligned}
   n^i &= \sum_j \frac{\partial x_i^\prime}{\partial x_j} u^i\\
   m^i &= \sum_j \frac{\partial x_i^\prime}{\partial x_j} v^i
 \end{aligned}
 $$
+
 where $x_i$ are the old rectilinear coordinates and $x_i^\prime$ are
 the new curvilinear ones. We want to make sure that
+
 $$
 \vec{u} \cdot \vec{v} = \vec{n} \cdot \vec{m}
 $$
+
 so,
+
 $$
 \sum_i\sum_j g_{ij}n^im^j =
 \sum_i\sum_j\sum_k\sum_l g_{ij}
@@ -144,16 +149,21 @@ $$
 \frac{\partial x_j^\prime}{\partial x_l}v^j
 = \sum_i\sum_j \delta_{ij} u^iu^j
 $$
+
 this is a bit of a beast with lots of sums, but rearranging isn't that
 hard, and we get that
+
 $$
 g_{ij} = \frac{\partial x_i}{\partial x_j^\prime}
 $$
+
 In a similar way we do cross products,
+
 $$
 \vec{n} \times \vec{m} =
 \sum_i \sum_j \sum_k g_{ij} \epsilon_{jkl} u^k v^l
 $$
+
 The effect of applying a metric tensor this way (``applying'' means
 summing over its second index) is a distance preserving coordinate
 transofrmation.
