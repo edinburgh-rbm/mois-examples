@@ -147,7 +147,7 @@ $$
 \sum_i\sum_j\sum_k\sum_l g_{ij}
 \frac{\partial y^i}{\partial x^k}u^k
 \frac{\partial y^j}{\partial x^l}v^l
-= \sum_i\sum_j \delta_{ij} n^im^j
+= \sum_i\sum_j \delta_{ij} u^iv^j
 $$
 
 this is a bit of a beast with lots of sums, but rearranging isn't that
@@ -164,7 +164,7 @@ In a similar way we do cross products,
 
 $$
 \vec{n} \times \vec{m} =
-\sum_i \sum_j \sum_k g_{ij} \epsilon_{jkl} u^k v^l
+\sum_i \sum_j \sum_k g_{ij} \epsilon_{jkl} i^k m^l
 $$
 
 The effect of applying a metric tensor this way ("applying" means
