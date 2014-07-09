@@ -195,3 +195,4 @@ metric tensor arranges so that the distances stay the same.
 
 It's also hopefully clear why it's good to use the summation
 convention and drop all of the annoying sigmas.
+
