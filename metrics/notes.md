@@ -147,7 +147,7 @@ $$
 \sum_i\sum_j\sum_k\sum_l g_{ij}
 \frac{\partial y^i}{\partial x^k}u^k
 \frac{\partial y^j}{\partial x^l}v^l
-= \sum_i\sum_j \delta_{ij} u^iu^j
+= \sum_i\sum_j \delta_{ij} n^im^j
 $$
 
 this is a bit of a beast with lots of sums, but rearranging isn't that
