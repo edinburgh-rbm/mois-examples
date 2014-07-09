@@ -123,7 +123,7 @@ $$
 \vec{n} \cdot \vec{m} = \sum_i\sum_j g_{ij}n^im^j
 $$
 
-we want that they are the ``same'' vectors just represented with
+we want that they are the "same" vectors just represented with
 different coordinates, so we can write,
 $$
 \begin{aligned}
