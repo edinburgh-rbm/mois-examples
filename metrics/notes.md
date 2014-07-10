@@ -164,7 +164,7 @@ In a similar way we do cross products,
 
 $$
 \vec{n} \times \vec{m} =
-\sum_i \sum_j \sum_k g_{ij} \epsilon_{jkl} n^k m^l
+\sum_j \sum_k \sum_l g_{ij} \epsilon_{jlk} n^k m^l
 $$
 
 The effect of applying a metric tensor this way ("applying" means
