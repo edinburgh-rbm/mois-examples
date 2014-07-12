@@ -44,7 +44,7 @@ values, the new ones for $x$ and $y$.
 
 The implementation of `demo.spiral` looks like this:
 
-{% highlight python %]
+{% highlight python %}
 from math import cos, sin, pi
 
 def spiral(t0, dt, r):
