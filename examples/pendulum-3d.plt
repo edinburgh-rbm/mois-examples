@@ -10,11 +10,12 @@ set pm3d
 unset hidden3d
 set xlabel "θ"
 set ylabel "p"
-set zlabel "log(E)"
+set zlabel "ln(E)"
 set ytics 5
 set ztics 
 set zrange [0 to 5]
 set cbrange [0 to 5]
 set palette defined
 set style data points
-splot "pendulum.dat" using 4:3:(log($2)) with dots
+#set logscale z
+splot "pendulum.dat" using 4:3:2 with dots
