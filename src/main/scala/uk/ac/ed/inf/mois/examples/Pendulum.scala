@@ -33,9 +33,9 @@ object PendulumModel extends MoisMain("Pendulum Model") {
   import model._
 
   override def run(t: Double, tau: Double) {
-    for(i <- -20 until 20 by 1) {
+    for(i <- (-20 until 20 by 1).map(_.toDouble/2)) {
       θ := PI/8
-      p := -i/2
+      p := i
       outputHandler.reset(t, model)
       model(t, tau)
     }
