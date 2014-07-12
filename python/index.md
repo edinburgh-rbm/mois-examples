@@ -53,7 +53,7 @@ def spiral(t0, dt, r):
     x = r * cos(theta) * theta
     y = r * sin(theta) * theta
     return x, y
-{% endhighlight %]
+{% endhighlight %}
 
 Now that we have the process defined, we need to make the model. We
 don't use the process directly, but instead form a `ProcessGroup`
