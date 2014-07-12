@@ -15,7 +15,7 @@ Newtonian, Lagrangian and Hamiltonian methods.
 In the hamiltonian case, we have
 
 $$
-H = \frac{p_\theta^2}{2ml^2} + mgl(1 - cos(\theta))
+H(\theta, p_\theta) = \frac{p_\theta^2}{2ml^2} + mgl(1 - cos(\theta))
 $$
 
 The process itself consists in just declaring the variables and
