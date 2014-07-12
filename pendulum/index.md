@@ -55,6 +55,7 @@ the it several times with different initial conditions.
 object PendulumModel extends MoisMain("Pendulum Model") {
   // create a pendulum model with unit mass and unit length       
   val model = new Pendulum(1, 1)
+  // bring θ and p into scope so we can change their values
   import model._
 
   // The run method of MoisMain will normally only run
