@@ -11,6 +11,7 @@ is one that is pretty commonly known and MOIS supports python scripts
 for defining the behaviour of a process.
 
 For example, consider the simple parametrised spiral
+
 $$
 \begin{aligned}
 x(\theta) &= r \cos\left(\theta\right)\theta \\
@@ -28,10 +29,10 @@ case class PySpiral(val r0: Double) extends PythonProcess("Python Parametrised S
   // declare variables
   val x = Double("ex:x")
   val y = Double("ex:y")
-  // $r$ is just a constant parameter
+  // r is just a constant parameter
   val r = Double("ex:r") := r0
 
-  // calculate values of $x$ and $y$ using the python
+  // calculate values of x and y using the python
   // function demo.spiral
   py(x, y) := Python("demo").spiral(r)
 }
