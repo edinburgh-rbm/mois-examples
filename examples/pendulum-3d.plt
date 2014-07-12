@@ -18,4 +18,4 @@ set cbrange [0 to 5]
 set palette defined
 set style data points
 #set logscale z
-splot "pendulum.dat" using 4:3:2 with dots
+splot "pendulum.dat" using 4:3:(log($2)) with dots
