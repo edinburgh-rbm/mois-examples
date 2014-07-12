@@ -16,13 +16,17 @@ skel/src/test/scala/org/example/ExampleTest.scala
 skel/src/test/resources/example_test.py
 ~~~~~
 
-The first one, `build.sbt`, contains instructions for the 
+The first one, 
+[build.sbt](https://github.com/edinburgh-rbm/mois-examples/blob/master/skel/build.sbt),
+contains instructions for the 
 [sbt](http://www.scala-sbt.org/) build tool for how to compile the
 model. This is where any dependencies are listed as well as version
 information and so forth.
 
 The actual source code for the model goes in the `src/main` sub
-directory. In here is a scala source code file that implements the
+directory. In here is
+[Example.scala](https://github.com/edinburgh-rbm/mois-examples/blob/master/skel/src/main/scala/org/example/Example.scala),
+a scala source code file that implements the
 model. The convention is to use a package name that is unique and
 corresponds to a domain name that belongs to you. The source code goes
 in a sub-directory that is this name, reversed. That is, for a package
@@ -35,7 +39,9 @@ mainly used for python scripting -- the python source code goes
 there.
 
 The `src/test` sub-directory mirrors the main one and is where tests
-for the model go. It is a very good idea to have a suite of tests that
+for the model go. A minimal example is
+[ExampleTest.scala](https://github.com/edinburgh-rbm/mois-examples/blob/master/skel/src/test/scala/org/example/ExampleTest.scala).
+It is a very good idea to have a suite of tests that
 verify that different parts of the model are working as expected. This
 practice helps to find bugs and can help to make sure that when a change
 is made that the change doesn't also break other things that. The test
