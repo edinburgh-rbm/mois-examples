@@ -82,3 +82,6 @@ object PySpiralModel
 }
 {% endhighlight %}
 
+And the result is:
+
+![Python Spiral](spiral.png)
