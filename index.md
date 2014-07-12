@@ -14,7 +14,7 @@ well as a class derived from *MoisMain* which serves to act as
 an entry point for the simulation and sets up some default 
 initial conditions.
 
-  * [running models and collect output](running.html)
+  * [running models and collecting output](running.html)
 
 Example Models
 ==============
