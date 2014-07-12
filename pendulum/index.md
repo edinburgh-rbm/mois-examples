@@ -27,7 +27,7 @@ defining the Hamiltonian as follows
  * the mass and length of the pendulum.
  */
 case class Pendulum(m: Double, l: Double) 
-     extends HamiltonianProcess("Pendulum") {
+     extends HamiltonianProcess("Planar Pendulum") {
   // declare the variables
   val θ = Double("ex:θ")
   val p = Double("ex:p")
@@ -52,7 +52,7 @@ examples because in order to make a phase-space diagram we need to run
 the it several times with different initial conditions.
 
 {% highlight scala %}
-object PendulumModel extends MoisMain("Pendulum Model") {
+object PendulumModel extends MoisMain("Planar Pendulum Model") {
   // create a pendulum model with unit mass and unit length       
   val model = new Pendulum(1, 1)
   // bring θ and p into scope so we can change their values
