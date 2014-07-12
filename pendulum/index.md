@@ -77,5 +77,12 @@ object PendulumModel extends MoisMain("Pendulum Model") {
 }
 {% endhighlight %}
 
+And so we get these diagrams with gnuplot, clearly showing the
+oscillating pendulum in the central area where the circles are - each
+line is a path of constant energy, each corresponding to a run of the
+simulation with a different initial momentum. Outside the circular
+area the pendulum has too much energy to stop and instead circulates
+instead of oscillating back and forth.
+
 ![Phase-space Diagram](pendulum.png)
 ![Phase-space Diagram](pendulum-3d.png)
