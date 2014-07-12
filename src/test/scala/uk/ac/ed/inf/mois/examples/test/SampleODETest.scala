@@ -15,37 +15,63 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package uk.ac.ed.inf.mois.examples.test
+package uk.ac.ed.inf.mois.test
 
-import java.lang.Math.abs
-import org.scalatest.FlatSpec
+import org.scalatest.{FlatSpec, Matchers}
+import org.scalactic.TolerantNumerics
 
-import uk.ac.ed.inf.mois.examples.sampleODE
-import uk.ac.ed.inf.mois.Conversions._
+import uk.ac.ed.inf.mois.OrdinaryProcess
 
-class SampleODETest extends FlatSpec {
-  "sample ode" should "give dominik's expected results" in {
+/** Directly calculated ODE system from Dominik's stuff. */
+object sampleODE extends OrdinaryProcess("sample") {
+  val x1 = Double("ex:x1")
+  val x2 = Double("ex:x2")
+  val x3 = Double("ex:x3")
+  d(x1)/dt := -0.3*x1 - 0.4*x2
+  d(x2)/dt := -0.5*x1 - 0.8*x2
+  d(x3)/dt := java.lang.Math.sin(t)
+}
 
-    val initialConditions = sampleODE.state.copy
+class ODEProcessTest extends FlatSpec with Matchers {
 
-    sampleODE(0, 50.0)
+  "sample ODE" should "give Dominik's expected results" in {
 
-    assert(abs(sampleODE.y(0) + 0.1398) < 0.0001)
-    assert(abs(sampleODE.y(1) + (-0.0916)) < 0.0001)
+    // Use approximate equality in `should equal`
+    val precision = 1e-4
+    implicit val doubleEquality =
+      TolerantNumerics.tolerantDoubleEquality(precision)
 
-    // run it again
-    sampleODE(50.0, 100)
+    sampleODE.x1 := 25.0
+    sampleODE.x2 := 50.0
+    sampleODE.x3 := 0.0
 
-    assert(abs(sampleODE.y(0) + 0.0032) < 0.0001)
-    assert(abs(sampleODE.y(1) + (-0.0021)) < 0.0001)
+    sampleODE.x1.value should equal (25.0)
+    sampleODE.x2.value should equal (50.0)
+    sampleODE.x3.value should equal (0.0)
+
+    // Integrate from t1 = 0 to t2 = 50
+    sampleODE.step(0, 50)
+
+    sampleODE.x1.value should equal (-0.1398)
+    sampleODE.x2.value should equal (0.0916)
+    sampleODE.x3.value should equal (0.0350)
+
+    // Integrate from t1 = 50 to t2 = 150
+    sampleODE.step(50, 100)
+
+    sampleODE.x1.value should equal (-0.0032)
+    sampleODE.x2.value should equal (0.0021)
+    sampleODE.x3.value should equal (0.3007)
 
     // reset the initial conditions
-    sampleODE.state <<< initialConditions
+    sampleODE.x1 := 25.0
+    sampleODE.x2 := 50.0
+    sampleODE.x3 := 0.0
 
     // make sure we get the same results
-    sampleODE(0, 50.0)
-
-    assert(abs(sampleODE.y(0) + 0.1398) < 0.0001)
-    assert(abs(sampleODE.y(1) + (-0.0916)) < 0.0001)
+    sampleODE.step(0, 50.0)
+    sampleODE.x1.value should equal (-0.1398)
+    sampleODE.x2.value should equal (0.0916)
+    sampleODE.x3.value should equal (0.0350)
   }
 }
