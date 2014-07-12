@@ -14,8 +14,8 @@ For example, consider the simple parametrised spiral
 
 $$
 \begin{aligned}
-x(\theta) &= r \cos\left(\theta\right)\theta \\
-y(\theta) &= r \sin\left(\theta\right)\theta \\
+x(\theta) &= r \cos(\theta)\theta \\
+y(\theta) &= r \sin(\theta)\theta \\
 \theta(t) &= t\pi
 \end{aligned}
 $$
