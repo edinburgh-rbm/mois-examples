@@ -15,6 +15,7 @@ an entry point for the simulation and sets up some default
 initial conditions.
 
   * [running models and collecting output](running.html)
+  * [creating models](models.html)
 
 Example Models
 ==============
