@@ -25,7 +25,8 @@ writing it in Scala (and for a toy example like this there's no real
 reason to not write it in Scala) and it looks like this:
 
 {% highlight scala %}
-case class PySpiral(val r0: Double) extends PythonProcess("Python Parametrised Spiral") {
+case class PySpiral(val r0: Double)
+     extends PythonProcess("Python Parametrised Spiral") {
   // declare variables
   val x = Double("ex:x")
   val y = Double("ex:y")
@@ -63,8 +64,10 @@ whose only function is to step through at a specific resolution using
 instead of just the final value.
 
 {% highlight scala %}
-object PySpiralModel extends MoisMain("Python Parametrised Spiral Model") {
-  val model = new ProcessGroup("Python Parametrised Spiral Process Group") {
+object PySpiralModel
+       extends MoisMain("Python Parametrised Spiral Model") {
+
+  val model = new ProcessGroup("Python Spiral Process Group") {
     // declare the variables that we will output
     val x = Double("ex:x")
     val y = Double("ex:y")
@@ -75,6 +78,7 @@ object PySpiralModel extends MoisMain("Python Parametrised Spiral Model") {
     // add the python process
     this += new PySpiral(0.1)
   }
+
 }
 {% endhighlight %}
 
