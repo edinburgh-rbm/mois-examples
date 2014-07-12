@@ -10,7 +10,7 @@ fuller information and [explanations of these models and sample
 output](#example-models).
 
 In general a model file needs to implement the model itself as
-well as a class derived from *MoisMain* which serves to act as
+well as a class derived from `MoisMain` which serves to act as
 an entry point for the simulation and sets up some default 
 initial conditions.
 
