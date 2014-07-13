@@ -17,10 +17,9 @@
  */
 package uk.ac.ed.inf.mois.examples
 
-import uk.ac.ed.inf.mois.MoisMain
-import uk.ac.ed.inf.mois.OrdinaryProcess
+import uk.ac.ed.inf.mois.{Model, ODE}
 
-case class Roessler(a: Double, b: Double, c: Double) extends OrdinaryProcess("Henon") {
+case class Roessler(a: Double, b: Double, c: Double) extends ODE("Roessler") {
   val x = Double("ex:x")
   val y = Double("ex:y")
   val z = Double("ex:z")
@@ -29,11 +28,15 @@ case class Roessler(a: Double, b: Double, c: Double) extends OrdinaryProcess("He
   d(z) := b + z * (x - c)
 }
 
-object RoesslerModel extends MoisMain("Roessler Model") {
-  val model = new Roessler(0.2, 0.2, 5.7)
-  import model._
+class RoesslerModel extends Model {
+  val a = Double("ex:a") := 0.2
+  val b = Double("ex:b") := 0.2
+  val c = Double("ex:c") := 5.7
 
-  Double("ex:x") := 0.0
-  Double("ex:y") := 0.0
-  Double("ex:z") := 0.0
+  val process = new Roessler(a, b, c)
+
+  import process._
+  x := 0.0
+  y := 0.0
+  z := 0.0
 }

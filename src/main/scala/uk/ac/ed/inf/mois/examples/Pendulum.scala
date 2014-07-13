@@ -18,7 +18,7 @@
 package uk.ac.ed.inf.mois.examples
 
 import java.lang.Math.{cos, PI}
-import uk.ac.ed.inf.mois.MoisMain
+import uk.ac.ed.inf.mois.Model
 import uk.ac.ed.inf.mois.HamiltonianProcess
 
 case class Pendulum(m: Double, l: Double) extends HamiltonianProcess("Pendulum") {
@@ -28,16 +28,20 @@ case class Pendulum(m: Double, l: Double) extends HamiltonianProcess("Pendulum")
   H(Seq(θ), Seq(p)) := (p*p)/(2*m*l*l) + m*g*l*(1 - cos(θ))
 }
 
-object PendulumModel extends MoisMain("Pendulum Model") {
-  val model = new Pendulum(1, 1)
-  import model._
+class PendulumModel extends Model {
+  val m = Double("ex:m") := 1
+  val l = Double("ex:l") := 1
+
+  val process = new Pendulum(m, l)
+  import process._
 
   override def run(t: Double, tau: Double) {
     for(i <- (-20 until 20 by 1).map(_.toDouble/2)) {
       θ := PI/8
       p := i
-      outputHandler.reset(t, model)
-      model(t, tau)
+      for (sh <- process.stepHandlers)
+        sh.reset(t, process)
+      process(t, tau)
     }
   }
 }

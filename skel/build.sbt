@@ -23,6 +23,8 @@ version := "1.99.3-SNAPSHOT"
 
 scalaVersion := "2.11.1"
 
+mainClass in Compile := Some("uk.ac.ed.inf.mois.MoisMain")
+
 resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
 
 libraryDependencies += "uk.ac.ed.inf" %% "mois" % "1.99.3-SNAPSHOT"

@@ -17,8 +17,7 @@
  */
 package uk.ac.ed.inf.mois.examples
 
-import uk.ac.ed.inf.mois.MoisMain
-import uk.ac.ed.inf.mois.{PythonProcess, ProcessGroup}
+import uk.ac.ed.inf.mois.{Model, PythonProcess, ProcessGroup}
 import uk.ac.ed.inf.mois.sched.NaiveScheduler
 
 case class PySpiral(val r0: Double) extends PythonProcess("Python Parametrised Spiral") {
@@ -28,11 +27,11 @@ case class PySpiral(val r0: Double) extends PythonProcess("Python Parametrised S
   py(x, y) := Python("demo").spiral(r)
 }
 
-object PySpiralModel extends MoisMain("Python Parametrised Spiral Model") {
-  val model = new ProcessGroup("Python Parametrised Spiral Process Group") {
-    val x = Double("ex:x")
-    val y = Double("ex:y")
+class PySpiralModel extends Model {
+  val r = Double("ex:r") := 0.1
+
+  val process = new ProcessGroup("Python Parametrised Spiral Process Group") {
     scheduler = new NaiveScheduler(0.01)
-    this += new PySpiral(0.1)
+    this += new PySpiral(r)
   }
 }

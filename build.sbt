@@ -29,11 +29,11 @@ libraryDependencies += "uk.ac.ed.inf" %% "mois" % "1.99.3-SNAPSHOT"
 
 libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.0" % "test"
 
+mainClass in Compile := Some("uk.ac.ed.inf.mois.MoisMain")
+
 // Everything below this line is for publishing models/software to
 // public repositories. It -- or something like it -- is necessary
 // for easy sharing and reuse of models.
-
-crossScalaVersions := Seq("2.11.1", "2.10.4")
 
 publishTo := {
   val nexus = "https://oss.sonatype.org/"
