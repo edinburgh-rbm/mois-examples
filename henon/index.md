@@ -23,7 +23,7 @@ is implemented in the
 file as follows just like this:
 
 {% highlight scala %}
-import uk.ac.ed.inf.mois.MoisMain
+import uk.ac.ed.inf.mois.Model
 import uk.ac.ed.inf.mois.DiscreteProcess
 
 case class Hénon(a: Double, b: Double) extends DiscreteProcess("Henon") {
@@ -33,8 +33,10 @@ case class Hénon(a: Double, b: Double) extends DiscreteProcess("Henon") {
   n(y) := b * x
 }
 
-object HénonModel extends MoisMain("Hénon Model") {
-  val model = new Hénon(1.4, 0.3)
+object HénonModel extends Model {
+  val a = Double("ex:a") := 1.4
+  val b = Double("ex:b") := 0.3
+  def process = new Hénon(a, b)
 }
 {% endhighlight %}
 

@@ -23,8 +23,8 @@ is implemented in the
 file as follows just like this:
 
 {% highlight scala %}
-import uk.ac.ed.inf.mois.MoisMain
-import uk.ac.ed.inf.mois.OrdinaryProcess
+import uk.ac.ed.inf.mois.Model
+import uk.ac.ed.inf.mois.ODE
 
 case class Roessler(a: Double, b: Double, c: Double) extends OrdinaryProcess("Henon") {
   val x = Double("ex:x")
@@ -35,8 +35,11 @@ case class Roessler(a: Double, b: Double, c: Double) extends OrdinaryProcess("He
   d(z) := b + z * (x - c)
 }
 
-object RoesslerModel extends MoisMain("Roessler Model") {
-  val model = new Roessler(0.2, 0.2, 5.7)
+object RoesslerModel extends Model {
+  val Double("ex:a") := 0.2
+  val Double("ex:b") := 0.2
+  val Double("ex:c") := 5.7
+  val model = new Roessler(a, b, c)
 }
 {% endhighlight %}
 

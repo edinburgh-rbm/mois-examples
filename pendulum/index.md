@@ -52,11 +52,16 @@ examples because in order to make a phase-space diagram we need to run
 the it several times with different initial conditions.
 
 {% highlight scala %}
-object PendulumModel extends MoisMain("Planar Pendulum Model") {
-  // create a pendulum model with unit mass and unit length       
-  val model = new Pendulum(1, 1)
+object PendulumModel extends Model {
+  // set up the model parameters
+  val m = Double("ex:m") := 1 // unit mass
+  val l = Double("ex:l") := 1 // unit length
+
+  // create a pendulum process
+  val process = new Pendulum(m, l)
+
   // bring θ and p into scope so we can change their values
-  import model._
+  import process._
 
   // The run method of MoisMain will normally only run
   // the model once. We want to run it several times

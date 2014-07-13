@@ -64,10 +64,9 @@ whose only function is to step through at a specific resolution using
 instead of just the final value.
 
 {% highlight scala %}
-object PySpiralModel
-       extends MoisMain("Python Parametrised Spiral Model") {
+object PySpiralModel extends Model {
 
-  val model = new ProcessGroup("Python Spiral Process Group") {
+  val process = new ProcessGroup("Python Spiral Process Group") {
     // declare the variables that we will output
     val x = Double("ex:x")
     val y = Double("ex:y")
