@@ -75,9 +75,9 @@ object PendulumModel extends Model {
       p := i
       // reset the output handler to produce a blank
       // line in the output file for gnuplot
-      outputHandler.reset(t, model)
+      reset(t)
       // run the model
-      model(t, tau)
+      process(t, tau)
     }
   }
 }
