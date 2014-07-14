@@ -27,6 +27,8 @@ mainClass in Compile := Some("uk.ac.ed.inf.mois.MoisMain")
 
 resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
 
+resolvers += "ucar-unidata-releases" at "https://artifacts.unidata.ucar.edu/content/repositories/unidata-releases/"
+
 libraryDependencies += "uk.ac.ed.inf" %% "mois" % "1.99.3-SNAPSHOT"
 
 libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.0" % "test"

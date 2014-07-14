@@ -39,8 +39,7 @@ class PendulumModel extends Model {
     for(i <- (-20 until 20 by 1).map(_.toDouble/2)) {
       θ := PI/8
       p := i
-      for (sh <- process.stepHandlers)
-        sh.reset(t, process)
+      reset(t)
       process(t, tau)
     }
   }
