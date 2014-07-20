@@ -22,12 +22,14 @@ The process itself consists in just declaring the variables and
 defining the Hamiltonian as follows
 
 {% highlight scala %}
+import uk.ac.ed.inf.mois.{HamiltonianProcess, Math, Model}
+
 /**
  * The Planar Pendulum is parametrised by two variables,
  * the mass and length of the pendulum.
  */
 case class Pendulum(m: Double, l: Double) 
-     extends HamiltonianProcess("Planar Pendulum") {
+     extends HamiltonianProcess("Planar Pendulum") with Math {
   // declare the variables
   val θ = Double("ex:θ")
   val p = Double("ex:p")
@@ -35,7 +37,7 @@ case class Pendulum(m: Double, l: Double)
   val g = 9.81
 
   // Define the Hamiltonian
-  H(Seq(θ), Seq(p)) := (p*p)/(2*m*l*l) + m*g*l*(1 - cos(θ))
+  H(Seq(θ), Seq(p)) := pow(p,2)/(2*m*pow(l,2)) + m*g*l*(1 - cos(θ))
 }
 {% endhighlight %}
 
@@ -44,8 +46,6 @@ one each for the generalised coordinates and conjugate momenta. In
 this case we have one coordinate, $\theta$ which is the angle from
 vertical of the pendulum, and $p_\theta$ the corresponding angular
 momentum.
-
-  The syntax could be a little cleaner!
 
 Creating the model is slightly more involved than some of the other
 examples because in order to make a phase-space diagram we need to run
