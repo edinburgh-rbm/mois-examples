@@ -21,23 +21,21 @@ import java.lang.Math.{cos, PI}
 import uk.ac.ed.inf.mois.Model
 import uk.ac.ed.inf.mois.HamiltonianProcess
 
-case class Pendulum(m: Double, l: Double, n: Int) extends HamiltonianProcess("Pendulum") {
+case class Pendulum(m: Double, l: Double) extends HamiltonianProcess("Pendulum") {
   val θ = Double("ex:θ")
   val p = Double("ex:p")
   val g = 9.81
   H(Seq(θ), Seq(p)) := (p*p)/(2*m*l*l) + m*g*l*(1 - cos(θ))
-
-  // for netcdf's benefit, write out 20 bands
-  val E = Double("E")
-  Dimension(E, n)
 }
 
 class PendulumModel extends Model {
   val m = Double("ex:m") := 1
   val l = Double("ex:l") := 1
 
-  val process = new Pendulum(m, l, 41)
+  val process = new Pendulum(m, l)
   import process._
+
+  Dimension(E, 41)
 
   override def run(t: Double, tau: Double) {
     for(i <- (-20 until 21 by 1).map(_.toDouble/2)) {
