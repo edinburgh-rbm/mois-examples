@@ -17,15 +17,25 @@
  */
 package uk.ac.ed.inf.mois.examples
 
-import java.lang.Math.{cos, PI}
+import java.lang.Math.{sin, cos, PI}
 import uk.ac.ed.inf.mois.Model
 import uk.ac.ed.inf.mois.HamiltonianProcess
+import uk.ac.ed.inf.mois.VarCalc
 
-case class Pendulum(m: Double, l: Double) extends HamiltonianProcess("Pendulum") {
+case class Pendulum(m: Double, l: Double) 
+     extends HamiltonianProcess("Pendulum") with VarCalc {
+  val E = Double("ex:E")
   val θ = Double("ex:θ")
   val p = Double("ex:p")
+  val x = Double("ex:x")
+  val y = Double("ex:y")
   val g = 9.81
+
   H(Seq(θ), Seq(p)) := (p*p)/(2*m*l*l) + m*g*l*(1 - cos(θ))
+
+  calc(E) := totalEnergy
+  calc(x) := l * sin(θ)
+  calc(y) := -l * cos(θ)
 }
 
 class PendulumModel extends Model {
