@@ -17,21 +17,39 @@
  */
 package uk.ac.ed.inf.mois.examples
 
-import java.lang.Math.{sin, cos, PI}
+import java.lang.Math.PI
+import uk.ac.ed.inf.mois.Math
 import uk.ac.ed.inf.mois.Model
 import uk.ac.ed.inf.mois.HamiltonianProcess
 import uk.ac.ed.inf.mois.VarCalc
 
 case class Pendulum(m: Double, l: Double) 
-     extends HamiltonianProcess("Pendulum") with VarCalc {
-  val E = Double("ex:E")
-  val θ = Double("ex:θ")
-  val p = Double("ex:p")
-  val x = Double("ex:x")
-  val y = Double("ex:y")
+     extends HamiltonianProcess("Pendulum") with VarCalc with Math {
+  Annotate("title", "Planar Pendulum")
+
+  val E = Double("E")
+  E.Annotate("long_name", "Total energy")
+  E.Annotate("units", "J")
+
+  val θ = Double("θ")
+  θ.Annotate("long_name", "Angle anti-clockwise from vertically downwards")
+  θ.Annotate("units", "rad")
+
+  val p = Double("p")
+  p.Annotate("long_name", "Angular momentum")
+  p.Annotate("units", "J.s")
+
+  val x = Double("x")
+  x.Annotate("long_name", "X position in cartesian coordinates")
+  x.Annotate("units", "m")
+
+  val y = Double("y")
+  y.Annotate("long_name", "Y position in cartesian coordinates")
+  y.Annotate("units", "m")
+
   val g = 9.81
 
-  H(Seq(θ), Seq(p)) := (p*p)/(2*m*l*l) + m*g*l*(1 - cos(θ))
+  H(Seq(θ), Seq(p)) := pow(p,2)/(2*m*pow(l,2)) + m*g*l*(1 - cos(θ))
 
   calc(E) := totalEnergy
   calc(x) := l * sin(θ)
@@ -39,13 +57,15 @@ case class Pendulum(m: Double, l: Double)
 }
 
 class PendulumModel extends Model {
-  val m = Double("ex:m") := 1
-  val l = Double("ex:l") := 1
+  val m = Double("m") := 1
+  val l = Double("l") := 1
 
   val process = new Pendulum(m, l)
   import process._
 
   Dimension(E, 41)
+  Annotate("mass", m.value)
+  Annotate("length", l.value)
 
   override def run(t: Double, tau: Double) {
     for(i <- (-20 until 21 by 1).map(_.toDouble/2)) {
