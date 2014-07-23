@@ -79,7 +79,7 @@ class PendulumModel extends Model {
   // number of times to run the simulation. Run starting at p0
   // n times and increase p0 by 0.5 each time
   val θ_0 = Double("θ0") := 0
-  val p_0 = Double("p0") := -20
+  val p_0 = Double("p0") := -10
   val p_n = Int("n") := 41
   val p_delta = Double("p_delta") := 0.5
 
