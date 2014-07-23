@@ -20,18 +20,18 @@ package uk.ac.ed.inf.mois.examples
 import uk.ac.ed.inf.mois.{Model, ODE}
 
 case class Roessler(a: Double, b: Double, c: Double) extends ODE("Roessler") {
-  val x = Double("ex:x")
-  val y = Double("ex:y")
-  val z = Double("ex:z")
+  val x = Double("x")
+  val y = Double("y")
+  val z = Double("z")
   d(x) := -y - z
   d(y) := x + a*y
   d(z) := b + z * (x - c)
 }
 
 class RoesslerModel extends Model {
-  val a = Double("ex:a") := 0.2
-  val b = Double("ex:b") := 0.2
-  val c = Double("ex:c") := 5.7
+  val a = Double("a") := 0.2
+  val b = Double("b") := 0.2
+  val c = Double("c") := 5.7
 
   val process = new Roessler(a, b, c)
 
