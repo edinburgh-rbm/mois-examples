@@ -19,11 +19,11 @@ initial conditions.
   * [creating models](models.html)
   * [annotation and metadata](annotation.html)
 
-Example Models
-==============
-
+Examples
+========
 
   * [Hénon map](henon)
   * [Rössler map](roessler)
   * [Python processes](python)
   * [Hamiltonian planar pendulum](pendulum)
+  * [NetCDF output and processing](netcdf)
