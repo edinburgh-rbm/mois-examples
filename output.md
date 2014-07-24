@@ -77,13 +77,8 @@ As an example,
 import uk.ac.ed.inf.mois.{TsvWriter, ODE}
 
 class P extends ODE("Some Process") {
-  addStepHandler(
-    new TsvWriter(
-      new java.io.PrintWriter(
-        new java.io.File("debug.tsv")
-      )
-    )
-  )
+  val fp = new java.io.File("debug.tsv")
+  addStepHandler(new TsvWriter(new java.io.PrintWriter(fp)))
   ...
 }
 {% endhighlight %}
