@@ -94,25 +94,25 @@ class PendulumModel extends Model {
   Dimension(E, 41)
 
   // Global annotations on the model
-  Annotate("title", "Planar Pendulum")
+  annotate("title", "Planar Pendulum")
   // We store and document the mass and length but not the p_* 
   // simulation parameters because they appear in the data
-  Annotate("mass", m.value)
-  Annotate("length", l.value)
+  annotate("mass", m.value)
+  annotate("length", l.value)
 
   // Annotations on each variable
-  E.Annotate("long_name", "Total energy")
-  E.Annotate("units", "J")
+  E.annotate("long_name", "Total energy")
+  E.annotate("units", "J")
 
-  θ.Annotate("long_name", "Angle anti-clockwise from vertically downwards")
-  θ.Annotate("units", "rad")
-  p.Annotate("long_name", "Angular momentum")
-  p.Annotate("units", "J.s")
+  θ.annotate("long_name", "Angle anti-clockwise from vertically downwards")
+  θ.annotate("units", "rad")
+  p.annotate("long_name", "Angular momentum")
+  p.annotate("units", "J.s")
 
-  x.Annotate("long_name", "X position in cartesian coordinates")
-  x.Annotate("units", "m")
-  y.Annotate("long_name", "Y position in cartesian coordinates")
-  y.Annotate("units", "m")
+  x.annotate("long_name", "X position in cartesian coordinates")
+  x.annotate("units", "m")
+  y.annotate("long_name", "Y position in cartesian coordinates")
+  y.annotate("units", "m")
 
   // We override the `run` method because we want to run the simulation several
   // times, 41 times in all from various initial conditions, -10 to 10 J.s for the

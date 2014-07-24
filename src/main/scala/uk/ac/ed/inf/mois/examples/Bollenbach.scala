@@ -38,33 +38,33 @@ class Bollenbach(
   val v_a: Double
   ) extends ODE("Bollenbach") with VarCalc with Math {
 
-  Annotate("title", "Nonoptimal Microbial Response to Antibiotics Underlies Suppressive Drug Interactions")
-  Annotate("author", List("Tobias Bollenbach", "Selwyn Quan", "Remy Chait", "Roy Kishony"))
-  Annotate("url", List("https://www.cell.com/cell/pdf/S0092-8674(09)01315-4.pdf",
+  annotate("title", "Nonoptimal Microbial Response to Antibiotics Underlies Suppressive Drug Interactions")
+  annotate("author", List("Tobias Bollenbach", "Selwyn Quan", "Remy Chait", "Roy Kishony"))
+  annotate("url", List("https://www.cell.com/cell/pdf/S0092-8674(09)01315-4.pdf",
 		       "https://www.cell.com/cms/attachment/604695/4793645/mmc2.pdf"))
 
   val g = Double("g") := 1.0
-  g.Annotate("long_name", "Growth Rate")
-  g.Annotate("units", "1/h")
+  g.annotate("long_name", "Growth Rate")
+  g.annotate("units", "1/h")
 
   val p = Double("p") := 2.4e6
   p must (_ >= 0.0)
-  p.Annotate("long_name", "Proteins per cell")
+  p.annotate("long_name", "Proteins per cell")
 
   val c = Double("c") := 1.8
   c must (_ >= 0.0)
-  c.Annotate("long_name", "Genome equivalends of DNA per cell")
+  c.annotate("long_name", "Genome equivalends of DNA per cell")
 
   val r = Double("r") := 1.35e4
   r must (_ >= 0.0)
-  r.Annotate("long_name", "Ribosomes per cell")
+  r.annotate("long_name", "Ribosomes per cell")
 
   val a = Double("a") := 1.0
   a must (_ >= 0.0)
-  a.Annotate("long_name", "Resources per cell")
+  a.annotate("long_name", "Resources per cell")
 
   val s_ropt = Double("s_ropt")
-  s_ropt.Annotate("long_name", "Optimal regulation of ribosome synthesis")
+  s_ropt.annotate("long_name", "Optimal regulation of ribosome synthesis")
   Dimension(s_ropt)
 
   @inline final def V = k_v * (p + p_r*r)
@@ -99,60 +99,60 @@ class Bollenbach(
 
 class BollenbachModel extends Model {
   val delta = Double("delta") := 1.0
-  delta.Annotate("long_name", "Relative change of DNA synthesis rate (< 1.0 with antibiotics")
+  delta.annotate("long_name", "Relative change of DNA synthesis rate (< 1.0 with antibiotics")
 
   val eps_c = Double("epsilon_c") := 0.039
-  eps_c.Annotate("long_name", "Resources consumed to make one chromosome")
+  eps_c.annotate("long_name", "Resources consumed to make one chromosome")
 
   val eps_p = Double("epsilon_p") := 8.1e-7
-  eps_c.Annotate("long_name", "Resources consumed to make one protein")
+  eps_c.annotate("long_name", "Resources consumed to make one protein")
 
   val eps_r = Double("epsilon_r") := 2.2e-5
-  eps_c.Annotate("long_name", "Resources consumed to make one ribosome")
+  eps_c.annotate("long_name", "Resources consumed to make one ribosome")
 
   val k_deg = Double("k_deg") := 0.12
-  k_deg.Annotate("long_name", "Resource degradation rate")
-  k_deg.Annotate("units", "1/h")
+  k_deg.annotate("long_name", "Resource degradation rate")
+  k_deg.annotate("units", "1/h")
 
   val k_p0 = Double("k_p0") := 0.059
-  k_p0.Annotate("long_name", "Maximal rate of protein synthesis per ribosome")
-  k_p0.Annotate("units", "1/s")
+  k_p0.annotate("long_name", "Maximal rate of protein synthesis per ribosome")
+  k_p0.annotate("units", "1/s")
 
   val k_v = Double("k_v") := 3.73e-7
-  k_v.Annotate("long_name", "Cell volume per protein")
-  k_v.Annotate("units", "1e-6 m^3")
+  k_v.annotate("long_name", "Cell volume per protein")
+  k_v.annotate("units", "1e-6 m^3")
 
   val M_a = Double("M_a") := 0.53
-  M_a.Annotate("long_name", "Resource concentration where chain elongation rates are half max")
-  M_a.Annotate("units", "1e-6 m^-3")
+  M_a.annotate("long_name", "Resource concentration where chain elongation rates are half max")
+  M_a.annotate("units", "1e-6 m^-3")
 
   val N_rrn = Double("N_rrn") := 7.0
-  N_rrn.Annotate("long_name", "Number of rrn operons per chromosome")
+  N_rrn.annotate("long_name", "Number of rrn operons per chromosome")
 
   val p_o = Double("p_o") := 9.9e5
-  p_o.Annotate("long_name", "Protein per replication origin")
+  p_o.annotate("long_name", "Protein per replication origin")
 
   val p_r = Double("p_r") := 20.7
-  p_r.Annotate("long_name", "Amount of protein per ribosome")
+  p_r.annotate("long_name", "Amount of protein per ribosome")
 
   val rho = Double("rho") := 1.0
-  rho.Annotate("long_name", "Fraction of functional ribosomes (< 1.0 with antibiotic)")
+  rho.annotate("long_name", "Fraction of functional ribosomes (< 1.0 with antibiotic)")
 
   val s_r0 = Double("s_r0") := 72.0
-  s_r0.Annotate("long_name", "Maximal rate of ribosome synthesis per rrn operon")
-  s_r0.Annotate("units", "1/min")
+  s_r0.annotate("long_name", "Maximal rate of ribosome synthesis per rrn operon")
+  s_r0.annotate("units", "1/min")
 
   val tau_C0 = Double("tau_C0") := 33.0
-  tau_C0.Annotate("long_name", "Minimalreplication time of chromosome")
-  tau_C0.Annotate("units", "60 s")
+  tau_C0.annotate("long_name", "Minimalreplication time of chromosome")
+  tau_C0.annotate("units", "60 s")
 
   val tau_D0 = Double("tau_D0") := 16.0
-  tau_D0.Annotate("long_name", "Minimal delay before cell division")
-  tau_D0.Annotate("units", "60 s")
+  tau_D0.annotate("long_name", "Minimal delay before cell division")
+  tau_D0.annotate("units", "60 s")
 
   val v_a = Double("v_a") := 2.42
-  v_a.Annotate("long_name", "Resource influx")
-  v_a.Annotate("units", "1/h")
+  v_a.annotate("long_name", "Resource influx")
+  v_a.annotate("units", "1/h")
 
   val s_rmin = Int("s_rmin") := -100
   val s_rmax = Int("s_rmax") := 100
