@@ -27,3 +27,4 @@ Examples
   * [Python processes](python)
   * [Hamiltonian planar pendulum](pendulum)
   * [NetCDF output and processing](netcdf)
+  * [Post-Hoc calculations](varcalc)
