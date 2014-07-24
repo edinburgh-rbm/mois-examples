@@ -55,7 +55,7 @@ class Pendulum(m: Double, l: Double)
   /*
    * Next define the Hamiltonian itself
    */
-  H(Seq(θ), Seq(p)) := pow(p,2)/(2*m*pow(l,2)) + m*g*l*(1 - cos(θ))
+  H(θ)(p) := pow(p,2)/(2*m*pow(l,2)) + m*g*l*(1 - cos(θ))
 
   /*
    * Finally define the way to arrive at derived variables from
