@@ -35,6 +35,6 @@ class Pendulum(m: Double, l: Double)
   // our polar coordinates
   calc(x) := l * sin(θ)
   calc(y) := -l * cos(θ)
-{% endhighlight}
+{% endhighlight %}
 
 [VarCalc]: https://edinburgh-rbm.github.io/mois/api/current/#uk.ac.ed.inf.mois.VarCalc
