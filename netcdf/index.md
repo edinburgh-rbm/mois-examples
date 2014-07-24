@@ -104,7 +104,8 @@ Which produces this picture:
 ![Phase space diagram](pendulum_theta_p.png)
 
 A fuller example with Octave is
-[pendulum-octave.m](pendulum-octave.m).
+[pendulum-octave.m](pendulum-octave.m). The almost identical
+equivalent for Matlab is [pendulum-matlab.m](pendulum-matlab.m).
 
 [NetCDF]: http://www.unidata.ucar.edu/netcdf
 [GNU Octave]: https://gnu.org/software/octave/
