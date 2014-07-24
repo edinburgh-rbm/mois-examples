@@ -15,7 +15,7 @@ print -dpng pendulum_theta_time.png
 
 ## plot the phase-space diagram
 plot(theta(1:35, :), p(1:35, :))
-axis([-3*pi, 3*pi])
+axis([-2*pi, 2*pi])
 title("Planar pendulum: phase space diagram")
 xlabel("angle")
 ylabel("momentum")
