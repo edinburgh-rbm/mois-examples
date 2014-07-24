@@ -100,11 +100,11 @@ text(-8, 13, "Each line represents a different total energy\ncorresponding to di
 print -dpng pendulum_theta_p.png
 {% endhighlight %}
 
+Which produces this picture:
+![Phase space diagram](pendulum_theta_p.png)
+
 A fuller example with Octave is
 [pendulum-octave.m](pendulum-octave.m).
-
-![Phase space diagram](pendulum_theta_p.png)
-![Angle as a function of time](pendulum_theta_time.png)
 
 [NetCDF]: http://www.unidata.ucar.edu/netcdf
 [GNU Octave]: https://gnu.org/software/octave/
