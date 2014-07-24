@@ -17,6 +17,7 @@ initial conditions.
   * [running models](running.html)
   * [collecting output](output.html)
   * [creating models](models.html)
+  * [annotation and metadata](annotation.html)
 
 Example Models
 ==============
