@@ -94,7 +94,7 @@ class PendulumModel extends Model {
   Dimension(E, 41)
   ...
 }
-{% endhighlight}
+{% endhighlight %}
 
 The metadata is also accessible, `nc{'p'}.long_name` will retrieve the
 the descriptive string, and this can be used, for example, to label
