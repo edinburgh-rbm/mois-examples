@@ -26,7 +26,7 @@ file as follows just like this:
 import uk.ac.ed.inf.mois.Model
 import uk.ac.ed.inf.mois.ODE
 
-case class Roessler(a: Double, b: Double, c: Double) extends OrdinaryProcess("Henon") {
+class Roessler(a: Double, b: Double, c: Double) extends ODE("Roessler") {
   val x = Double("ex:x")
   val y = Double("ex:y")
   val z = Double("ex:z")
@@ -35,11 +35,11 @@ case class Roessler(a: Double, b: Double, c: Double) extends OrdinaryProcess("He
   d(z) := b + z * (x - c)
 }
 
-object RoesslerModel extends Model {
+class RoesslerModel extends Model {
   val Double("ex:a") := 0.2
   val Double("ex:b") := 0.2
   val Double("ex:c") := 5.7
-  val model = new Roessler(a, b, c)
+  val process = new Roessler(a, b, c)
 }
 {% endhighlight %}
 

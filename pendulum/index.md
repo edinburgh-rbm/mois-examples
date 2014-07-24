@@ -52,7 +52,7 @@ examples because in order to make a phase-space diagram we need to run
 the it several times with different initial conditions.
 
 {% highlight scala %}
-object PendulumModel extends Model {
+class PendulumModel extends Model {
   // set up the model parameters
   val m = Double("ex:m") := 1 // unit mass
   val l = Double("ex:l") := 1 // unit length
