@@ -78,7 +78,6 @@ import uk.ac.ed.inf.mois.{TsvWriter, ODE}
 
 class P extends ODE("Some Process") {
   addStepHandler(new TsvWriter("debug.tsv"))
-
   ...
 }
 {% endhighlight %}
