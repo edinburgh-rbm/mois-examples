@@ -26,4 +26,6 @@ This produces the file [pendulum.nc](pendulum.nc).
 ![Angle as a function of time](pendulum_theta_time.png)
 
 [NetCDF]: http://www.unidata.ucar.edu/netcdf
+[GNU Octave]: https://gnu.org/software/octave/
+[Matlab]: http://www.mathworks.co.uk/products/matlab/
 [planar pendulum]: ../pendulum

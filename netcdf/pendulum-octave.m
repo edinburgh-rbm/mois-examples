@@ -1,9 +1,9 @@
 ## open NetCDF file and get the variables
 nc = netcdf("pendulum.nc", "r")
-time = ncvar(nc){1}
-E = ncvar(nc){2}
-p = ncvar(nc){3}
-theta = ncvar(nc){6}
+time = nc{'time'}
+E = nc{'E'}
+p = nc{'p'}
+theta = nc{'θ'}
 
 ## plot the angle timeseries
 plot(time(1:63), theta(1:63,:))
