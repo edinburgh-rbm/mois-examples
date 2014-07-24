@@ -77,7 +77,24 @@ Recall that in the pendulum example, the simulation is run 41 times,
 for different iniital conditions (increasing momentum in steps of 0.5
 from -10 to 10 J.s). These initial conditions correspond to different
 energies, but within a single run of the simulation the total energy
-remains the same because there are no dissipative forces. 
+remains the same because there are no dissipative forces.
+
+It was important that the energy be declared as a dimension in the
+model for this to happen. Otherwise it would be just a one-dimensional
+time-series with rubbish values for the energy and the values from the
+last run of the simulation for the others. This was done in the model
+like so
+
+{% highlight scala %}
+class PendulumModel extends Model {
+  ...
+  val process = new Pendulum(m, l)
+  import process._
+
+  Dimension(E, 41)
+  ...
+}
+{% endhighlight}
 
 The metadata is also accessible, `nc{'p'}.long_name` will retrieve the
 the descriptive string, and this can be used, for example, to label
