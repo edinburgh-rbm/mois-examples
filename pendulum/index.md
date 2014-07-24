@@ -37,7 +37,7 @@ case class Pendulum(m: Double, l: Double)
   val g = 9.81
 
   // Define the Hamiltonian
-  H(Seq(θ), Seq(p)) := pow(p,2)/(2*m*pow(l,2)) + m*g*l*(1 - cos(θ))
+  H(θ)(p) := pow(p,2)/(2*m*pow(l,2)) + m*g*l*(1 - cos(θ))
 }
 {% endhighlight %}
 
