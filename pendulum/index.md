@@ -18,8 +18,8 @@ $$
 H(\theta, p_\theta) = \frac{p_\theta^2}{2ml^2} + mgl(1 - cos(\theta))
 $$
 
-The process itself consists in just declaring the variables and
-defining the Hamiltonian as follows
+The process itself uses the [HamiltonianProcess] class and consists in
+just declaring the variables and defining the Hamiltonian as follows
 
 {% highlight scala %}
 import uk.ac.ed.inf.mois.{HamiltonianProcess, Math, Model}
@@ -99,3 +99,4 @@ calculations](../varcalc) to transform back to cartesian coordinates
 can be seen in the [github
 repository](https://github.com/edinburgh-rbm/mois-examples/blob/master/src/main/scala/uk/ac/ed/inf/mois/examples/Pendulum.scala)
 
+[HamiltonianProcess]: https://edinburgh-rbm.github.io/mois/api/current/#uk.ac.ed.inf.mois.HamiltonianProcess

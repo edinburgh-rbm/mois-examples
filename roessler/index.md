@@ -17,7 +17,7 @@ $$
 \end{aligned}
 $$
 
-It is a simple example of the use of the *OrdinaryProcess* class and
+It is a simple example of the use of the [ODE] class and
 is implemented in the
 [Roessler.scala](https://github.com/edinburgh-rbm/mois-examples/blob/master/src/main/scala/uk/ac/ed/inf/mois/examples/Roessler.scala)
 file as follows just like this:
@@ -51,3 +51,4 @@ gnuplot produces:
 
 ![Roessler attractor](roessler.png)
 
+[ODE]: https://edinburgh-rbm.github.io/mois/api/current/#uk.ac.ed.inf.mois.ODE

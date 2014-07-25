@@ -22,9 +22,15 @@ initial conditions.
 Examples
 ========
 
-  * [Hénon map](henon)
-  * [Rössler map](roessler)
-  * [Python processes](python)
-  * [Hamiltonian planar pendulum](pendulum)
-  * [NetCDF output and processing](netcdf)
-  * [Post-Hoc calculations](varcalc)
+  * DiscreteProcess
+    * [Hénon map](henon)
+  * ODE
+    * [Rössler map](roessler)
+  * PythonProcess
+    * [example](python)
+  * HamiltonianProcess
+    * [planar pendulum](pendulum)
+  * NetCDFWriter
+    * [NetCDF output and processing](netcdf)
+  * VarCalc
+    * [Post-Hoc calculations](varcalc)

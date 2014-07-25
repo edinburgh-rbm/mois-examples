@@ -17,7 +17,7 @@ y_{t+1} &= bx_t
 \end{aligned}
 $$
 
-It is a simple example of the use of the *DiscreteProcess* class and
+It is a simple example of the use of the [DiscreteProcess] class and
 is implemented in the
 [Henon.scala](https://github.com/edinburgh-rbm/mois-examples/blob/master/src/main/scala/uk/ac/ed/inf/mois/examples/Henon.scala)
 file as follows just like this:
@@ -46,3 +46,5 @@ at $t+1$.
 Running the model for 25000 time steps and graphing the output produces:
 
 ![graphic of Henon map](henon.png)
+
+[DiscreteProcess]: https://edinburgh-rbm.github.io/mois/api/current/#uk.ac.ed.inf.mois.DiscreteProcess

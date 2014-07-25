@@ -22,7 +22,8 @@ $$
 
 Writing this with Python is a little bit more involved than directly
 writing it in Scala (and for a toy example like this there's no real
-reason to not write it in Scala) and it looks like this:
+reason to not write it in Scala). It uses [PythonProcess] and looks
+like this:
 
 {% highlight scala %}
 case class PySpiral(val r0: Double)
@@ -84,3 +85,5 @@ object PySpiralModel extends Model {
 And the result is:
 
 ![Python Spiral](spiral.png)
+
+[PythonProcess]: https://edinburgh-rbm.github.io/mois/api/current/#uk.ac.ed.inf.mois.PythonProcess
