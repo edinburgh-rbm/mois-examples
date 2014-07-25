@@ -26,14 +26,14 @@ file as follows just like this:
 import uk.ac.ed.inf.mois.Model
 import uk.ac.ed.inf.mois.DiscreteProcess
 
-case class Hénon(a: Double, b: Double) extends DiscreteProcess("Henon") {
+class Hénon(a: Double, b: Double) extends DiscreteProcess("Henon") {
   val x = Double("ex:x")
   val y = Double("ex:y")
   n(x) := 1.0 - a * x*x + y
   n(y) := b * x
 }
 
-object HénonModel extends Model {
+class HénonModel extends Model {
   val a = Double("ex:a") := 1.4
   val b = Double("ex:b") := 0.3
   def process = new Hénon(a, b)

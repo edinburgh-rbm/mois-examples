@@ -26,7 +26,7 @@ reason to not write it in Scala). It uses [PythonProcess] and looks
 like this:
 
 {% highlight scala %}
-case class PySpiral(val r0: Double)
+class PySpiral(val r0: Double)
      extends PythonProcess("Python Parametrised Spiral") {
   // declare variables
   val x = Double("ex:x")
@@ -65,7 +65,7 @@ whose only function is to step through at a specific resolution using
 instead of just the final value.
 
 {% highlight scala %}
-object PySpiralModel extends Model {
+class PySpiralModel extends Model {
 
   val process = new ProcessGroup("Python Spiral Process Group") {
     // declare the variables that we will output
