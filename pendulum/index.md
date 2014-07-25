@@ -28,7 +28,7 @@ import uk.ac.ed.inf.mois.{HamiltonianProcess, Math, Model}
  * The Planar Pendulum is parametrised by two variables,
  * the mass and length of the pendulum.
  */
-case class Pendulum(m: Double, l: Double) 
+class Pendulum(m: Double, l: Double) 
      extends HamiltonianProcess("Planar Pendulum") with Math {
   // declare the variables
   val θ = Double("ex:θ")
@@ -92,3 +92,10 @@ instead of oscillating back and forth.
 
 ![Phase-space Diagram](pendulum.png)
 ![Phase-space Diagram](pendulum-3d.png)
+
+The complete version of the model, which uses
+[annotations](../annotation.html) and [post-hoc
+calculations](../varcalc) to transform back to cartesian coordinates
+can be seen in the [github
+repository](https://github.com/edinburgh-rbm/mois-examples/blob/master/src/main/scala/uk/ac/ed/inf/mois/examples/Pendulum.scala)
+
