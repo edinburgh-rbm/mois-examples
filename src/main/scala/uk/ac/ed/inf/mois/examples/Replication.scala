@@ -2,11 +2,14 @@ package uk.ac.ed.inf.mois.examples
 
 import uk.ac.ed.inf.mois.{DeterministicReactionNetwork, Model}
 
+@deprecated("Fix complex formation reactions")
 class Replication
   extends DeterministicReactionNetwork("Brusselator") {
   
+  annotate("uri", "http://www.wholecellkb.org/detail/Mgenitalium/Process_Replication")
+
   val ATP = Species("ATP")
-  val H20 = Species("H2O")
+  val OH2 = Species("H2O")
   val ADP = Species("ADP")
   val H = Species("H")
   val PI = Species("PI")
@@ -22,7 +25,6 @@ class Replication
   val DCMP = Species("DCMP")
   val DCTP = Species("DCTP")
   val dCpdCp = Species("dCpdCp")
-  val PPI = Species("PPI")
   val DGMP = Species("DGMP")
   val DGTP = Species("DGTP")
   val dGpdGp = Species("dGpdGp")
@@ -44,9 +46,8 @@ class Replication
   val DNA_POLYMERASE_GAMMA_COMPLEX = Species("DNA_POLYMERASE_GAMMA_COMPLEX")
   val MG_001_MONOMER = Species("MG_001_MONOMER")
   val MG_250_MONOMER = Species("MG_250_MONOMER")
+  val MG_254_MONOMER = Species("MG_254_MONOMER")
   val DNA_POLYMERASE_2CORE_BETA_CLAMP_GAMMA_COMPLEX_PRIMASE = Species("DNA_POLYMERASE_2CORE_BETA_CLAMP_GAMMA_COMPLEX_PRIMASE")
-  val DNA_POLYMERASE_CORE = Species("DNA_POLYMERASE_CORE")
-  val DNA_POLYMERASE_GAMMA_COMPLEX = Species("DNA_POLYMERASE_GAMMA_COMPLEX")
   val DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX = Species("DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX")
   val DNA_POLYMERASE_CORE_BETA_CLAMP_PRIMASE = Species("DNA_POLYMERASE_CORE_BETA_CLAMP_PRIMASE")
   val DNA_POLYMERASE_HOLOENZYME = Species("DNA_POLYMERASE_HOLOENZYME")
@@ -60,9 +61,11 @@ class Replication
     // -- Chemical reactions --
 
     // DNA unwinding
-    ATP + H2O -> ADP + H + PI at 1.0,
+    ATP + OH2 -> ADP + H + PI at 1.0,
+
     // DNA ligation
-    2 * DR5P + NAD -> AMP + dRibose5P_dRibose5P + H + NMN
+    // 2 * DR5P + NAD -> AMP + dRibose5P_dRibose5P + H + NMN
+    DR5P * 2 + NAD -> AMP + dRibose5P_dRibose5P + H + NMN
       catalysedBy MG_254_MONOMER using QSS(vmax = 2.4, // 1/min
                                            km = 4.1), // nM
     // DNA polymerization (dATP)
@@ -101,20 +104,25 @@ class Replication
     // -- Complex formation reactions --
 
     // DNA polymerase (2) core, β-clamp, γ-complex, and primase
-    2 * DNA_POLYMERASE_CORE + DNA_POLYMERASE_GAMMA_COMPLEX + 2 * MG_001_MONOMER + MG_250_MONOMER ->
-      DNA_POLYMERASE_2CORE_BETA_CLAMP_GAMMA_COMPLEX_PRIMASE,
+    // 2 * DNA_POLYMERASE_CORE + DNA_POLYMERASE_GAMMA_COMPLEX + 2 * MG_001_MONOMER + MG_250_MONOMER ->
+    DNA_POLYMERASE_CORE * 2 + DNA_POLYMERASE_GAMMA_COMPLEX + MG_001_MONOMER * 2 + MG_250_MONOMER ->
+      DNA_POLYMERASE_2CORE_BETA_CLAMP_GAMMA_COMPLEX_PRIMASE at 1.0,
     // DNA polymerase core, β-clamp, and γ-complex
-    DNA_POLYMERASE_CORE + DNA_POLYMERASE_GAMMA_COMPLEX + 2 * MG_001_MONOMER -> DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX,
+    DNA_POLYMERASE_CORE + DNA_POLYMERASE_GAMMA_COMPLEX + 2 * MG_001_MONOMER -> DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX at 1.0,
     // DNA polymerase core, β-clamp, and primase
-    DNA_POLYMERASE_CORE + 2 * MG_001_MONOMER + MG_250_MONOMER -> DNA_POLYMERASE_CORE_BETA_CLAMP_PRIMASE,
+    DNA_POLYMERASE_CORE + 2 * MG_001_MONOMER + MG_250_MONOMER -> DNA_POLYMERASE_CORE_BETA_CLAMP_PRIMASE at 1.0,
     // DNA-directed DNA polymerase holoenzyme
-    2 * DNA_POLYMERASE_CORE + DNA_POLYMERASE_GAMMA_COMPLEX + 2 * MG_001_MONOMER -> DNA_POLYMERASE_HOLOENZYME,
+    // 2 * DNA_POLYMERASE_CORE + DNA_POLYMERASE_GAMMA_COMPLEX + 2 * MG_001_MONOMER -> DNA_POLYMERASE_HOLOENZYME at 1.0,
+    DNA_POLYMERASE_CORE * 2 + DNA_POLYMERASE_GAMMA_COMPLEX + 2 * MG_001_MONOMER -> DNA_POLYMERASE_HOLOENZYME at 1.0,
     // DNA polymerase III, beta clamp
-    2 * MG_001_MONOMER -> MG_001_DIMER,
+    // 2 * MG_001_MONOMER -> MG_001_DIMER at 1.0,
+    MG_001_MONOMER * 2 -> MG_001_DIMER at 1.0,
     // Single-strand binding protein family, octamer
-    2 * MG_091_TETRAMER -> MG_091_OCTAMER,
+    // 2 * MG_091_TETRAMER -> MG_091_OCTAMER at 1.0,
+    MG_091_TETRAMER * 2 -> MG_091_OCTAMER at 1.0,
     // Replisome
-    2 * DNA_POLYMERASE_CORE + DNA_POLYMERASE_GAMMA_COMPLEX + 4 * MG_001_MONOMER + MG_094_HEXAMER + MG_250_MONOMER -> REPLISOME
+    // 2 * DNA_POLYMERASE_CORE + DNA_POLYMERASE_GAMMA_COMPLEX + 4 * MG_001_MONOMER + MG_094_HEXAMER + MG_250_MONOMER -> REPLISOME at 1.0
+    DNA_POLYMERASE_CORE * 2 + DNA_POLYMERASE_GAMMA_COMPLEX + 4 * MG_001_MONOMER + MG_094_HEXAMER + MG_250_MONOMER -> REPLISOME at 1.0
   )
 }
 
@@ -125,7 +133,7 @@ class ReplicationModel extends Model {
   val process = new Replication
   import process._
   ATP := 1.0
-  H20 := 1.0
+  OH2 := 1.0
   ADP := 1.0
   H := 1.0
   PI := 1.0
