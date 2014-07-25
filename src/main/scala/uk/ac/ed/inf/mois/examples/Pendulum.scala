@@ -105,7 +105,7 @@ class PendulumModel extends Model {
   E.annotate("units", "J")
 
   θ.annotate("long_name", "Angle anti-clockwise from vertically downwards")
-  θ.annotate("units", "rad")
+  θ.annotate("units", "radian")
   p.annotate("long_name", "Angular momentum")
   p.annotate("units", "J.s")
 
