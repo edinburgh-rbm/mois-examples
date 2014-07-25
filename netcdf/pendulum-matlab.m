@@ -1,8 +1,8 @@
 %% open NetCDF file and get the variables
 time = ncread('pendulum.nc','time');
 E = ncread('pendulum.nc','E');
-p = ncread('pendulum.nc','ex:p');
-theta = ncread('pendulum.nc','ex:=CE=B8');
+p = ncread('pendulum.nc','p');
+theta = ncread('pendulum.nc','θ');
 
 %% plot the angle timeseries
 figure(1)
