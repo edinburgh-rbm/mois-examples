@@ -31,6 +31,6 @@ Examples
   * HamiltonianProcess
     * [planar pendulum](pendulum)
   * NetCDFWriter
-    * [NetCDF output and processing](netcdf)
+    * [output and processing](netcdf)
   * VarCalc
-    * [Post-Hoc calculations](varcalc)
+    * [post-hoc calculations](varcalc)
