@@ -41,7 +41,7 @@ class Bollenbach(
   annotate("title", "Nonoptimal Microbial Response to Antibiotics Underlies Suppressive Drug Interactions")
   annotate("author", List("Tobias Bollenbach", "Selwyn Quan", "Remy Chait", "Roy Kishony"))
   annotate("url", List("https://www.cell.com/cell/pdf/S0092-8674(09)01315-4.pdf",
-		       "https://www.cell.com/cms/attachment/604695/4793645/mmc2.pdf"))
+                       "https://www.cell.com/cms/attachment/604695/4793645/mmc2.pdf"))
 
   val g = Double("g") := 1.0
   g.annotate("long_name", "Growth Rate")
@@ -158,7 +158,7 @@ class BollenbachModel extends Model {
   val s_rmax = Int("s_rmax") := 100
 
   val exemplar = new Bollenbach(delta, eps_c, eps_p, eps_r, k_deg, k_p0, k_v, M_a, N_rrn,
-				p_o, p_r, rho, s_r0, tau_C0, tau_D0, v_a)
+                                p_o, p_r, rho, s_r0, tau_C0, tau_D0, v_a)
   val process = new ReplayProcess(exemplar.name, exemplar)
   process.Dimension(exemplar.s_ropt)
 
@@ -168,26 +168,26 @@ class BollenbachModel extends Model {
 
     for (s_ropt <- s_rmin.value until s_rmax.value) {
       val attempt = new Bollenbach(delta, eps_c, eps_p, eps_r, k_deg, k_p0, k_v, M_a, N_rrn,
-				   p_o, p_r, rho, s_r0, tau_C0, tau_D0, v_a)
+                                   p_o, p_r, rho, s_r0, tau_C0, tau_D0, v_a)
       val acc = new Accumulator
       attempt.addStepHandler(acc)
       attempt.s_ropt := s_ropt
 
       try {
-	attempt.init(t)
-	attempt(t, tau)
-	attempt.finish
+        attempt.init(t)
+        attempt(t, tau)
+        attempt.finish
 
-	println(s"${s_ropt} -> g: ${attempt.g.value} (${g_max})... ")
+        println(s"${s_ropt} -> g: ${attempt.g.value} (${g_max})... ")
 
-	if (attempt.g.value > g_max) {
-	  g_max = attempt.g.value
-	  println(s"\nnew best: ${s_ropt} ${g_max}")
-	  best = acc
-	}
+        if (attempt.g.value > g_max) {
+          g_max = attempt.g.value
+          println(s"\nnew best: ${s_ropt} ${g_max}")
+          best = acc
+        }
       } catch {
-	case e: ConstraintViolation =>
-	  println(s"${s_ropt} -> $e")
+        case e: ConstraintViolation =>
+          println(s"${s_ropt} -> $e")
       }
     }
     process.replay(best)

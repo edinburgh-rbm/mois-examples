@@ -95,7 +95,7 @@ class PendulumModel extends Model {
 
   // Global annotations on the model
   annotate("title", "Planar Pendulum")
-  // We store and document the mass and length but not the p_* 
+  // We store and document the mass and length but not the p_*
   // simulation parameters because they appear in the data
   annotate("mass", m.value)
   annotate("length", l.value)

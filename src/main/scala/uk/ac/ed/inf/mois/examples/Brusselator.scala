@@ -4,12 +4,12 @@ import uk.ac.ed.inf.mois.{DeterministicReactionNetwork, Model}
 
 class Brusselator
   extends DeterministicReactionNetwork("Brusselator") {
-  
+
   val A = Species("A")
   val B = Species("B")
   val X = Species("X")
   val Y = Species("Y")
-  
+
   reactions(
     A -> X + A at 1.0,
     2(X) + Y -> 3(X) at 1.0,

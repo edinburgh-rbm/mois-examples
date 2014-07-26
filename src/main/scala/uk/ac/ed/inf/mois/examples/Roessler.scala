@@ -1,5 +1,5 @@
 /*
- *  MOIS Examples: Roessler Map 
+ *  MOIS Examples: Roessler Map
  *  Copyright (C) 2014 University of Edinburgh School of Informatics
  *
  *  This program is free software: you can redistribute it and/or modify
