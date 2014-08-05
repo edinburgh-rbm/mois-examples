@@ -1,4 +1,4 @@
-/*    
+/*
  *  <one line to give the program's name and a brief idea of what it does.>
  *  Copyright (C) <year>  <name of author>
  *
@@ -20,7 +20,7 @@ package org.example
 import uk.ac.ed.inf.mois.{Model, Process}
 
 class Example extends Process("example") {
-  def step(t: Double, tau: Double) {}
+  /* ... */
 }
 
 class ExampleModel extends Model {
