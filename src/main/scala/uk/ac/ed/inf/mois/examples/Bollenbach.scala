@@ -212,9 +212,6 @@ trait Debug extends BaseProcess {
 class ReplayProcess(val name: String, proc: BaseProcess) extends BaseProcess {
   override def toString = proc.toString
   leftMerge(proc)
-  def step(t: Double, tau: Double) {
-    throw new IllegalArgumentException("ReplayProcess is not expected to step")
-  }
 
   def replay(acc: Accumulator) {
     for( (t, vs) <- acc.history ) {
