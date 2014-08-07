@@ -1,4 +1,4 @@
-/*    
+/*
  *  <one line to give the program's name and a brief idea of what it does.>
  *  Copyright (C) <year>  <name of author>
  *
@@ -19,9 +19,9 @@ name := "examples-module"
 
 organization := "org.example"
 
-version := "1.99.3-SNAPSHOT"
+version := "1.99.4-SNAPSHOT"
 
-scalaVersion := "2.11.1"
+scalaVersion := "2.11.2"
 
 mainClass in Compile := Some("uk.ac.ed.inf.mois.MoisMain")
 
@@ -29,6 +29,6 @@ resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repos
 
 resolvers += "ucar-unidata-releases" at "https://artifacts.unidata.ucar.edu/content/repositories/unidata-releases/"
 
-libraryDependencies += "uk.ac.ed.inf" %% "mois" % "1.99.3-SNAPSHOT"
+libraryDependencies += "uk.ac.ed.inf" %% "mois" % "1.99.4-SNAPSHOT"
 
 libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.0" % "test"
