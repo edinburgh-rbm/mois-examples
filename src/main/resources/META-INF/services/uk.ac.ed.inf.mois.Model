@@ -4,6 +4,8 @@ uk.ac.ed.inf.mois.examples.CoupledOscillatorModel
 uk.ac.ed.inf.mois.examples.CoupledOscillatorGroupModel
 uk.ac.ed.inf.mois.examples.HénonModel
 uk.ac.ed.inf.mois.examples.PendulumModel
+uk.ac.ed.inf.mois.examples.PredatorPreyModel
+uk.ac.ed.inf.mois.examples.PredatorPreyIndepModel
 uk.ac.ed.inf.mois.examples.PySpiralModel
 uk.ac.ed.inf.mois.examples.RoesslerModel
 uk.ac.ed.inf.mois.examples.SampleODEModel
