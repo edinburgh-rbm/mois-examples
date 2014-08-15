@@ -151,7 +151,7 @@ simply use the *run* command, with arguments as above:
 % git clone https://github.com/edinburgh-rbm/mois-examples.git
 % cd mois-examples
 % sbt 
-> run model --duration 10 --output gui Pendulum
+> run model --duration 1 --output gui Pendulum
 [info] Updating {file:.../mois-examples/}mois-examples...
 [info] Resolving jline#jline;2.11 ...
 [info] Done updating.
