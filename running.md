@@ -143,11 +143,13 @@ Which produces this image:
 Developing and Modifying Models
 -------------------------------
 
-The other way is to obtain a copy of the source code and run *sbt* on
-its own. From the interactive shell it is possible to simply use the
-*run* command, with arguments as above:
+The other way is to obtain a copy of the source code for the examples,
+and run *sbt* on its own. From the interactive shell it is possible to
+simply use the *run* command, with arguments as above:
 
 ~~~~~
+% git clone https://github.com/edinburgh-rbm/mois-examples.git
+% cd mois-examples
 % sbt 
 > run model --duration 10 --output gui Pendulum
 [info] Updating {file:.../mois-examples/}mois-examples...
@@ -162,3 +164,4 @@ its own. From the interactive shell it is possible to simply use the
 This way of running the simulation is useful while the model is being
 developed because it will automatically recompile any source code
 files that have been changed before actually running. 
+
