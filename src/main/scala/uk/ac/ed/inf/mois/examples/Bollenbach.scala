@@ -17,7 +17,9 @@
  */
 package uk.ac.ed.inf.mois.examples
 
-import uk.ac.ed.inf.mois.{Accumulator, BaseProcess, ConstraintViolation, StepHandler, Math, Model, ODE, VarCalc}
+import uk.ac.ed.inf.mois.{Accumulator, Process, ConstraintViolation, StepHandler, Math, Model, ODE, VarCalc}
+import spire.implicits._
+import uk.ac.ed.inf.mois.implicits._
 
 class Bollenbach(
   val delta: Double,
@@ -36,7 +38,7 @@ class Bollenbach(
   val tau_C0: Double,
   val tau_D0: Double,
   val v_a: Double
-  ) extends ODE("Bollenbach") with VarCalc with Math {
+  ) extends ODE with VarCalc with Math {
 
   annotate("title", "Nonoptimal Microbial Response to Antibiotics Underlies Suppressive Drug Interactions")
   annotate("author", List("Tobias Bollenbach", "Selwyn Quan", "Remy Chait", "Roy Kishony"))
@@ -92,7 +94,7 @@ class Bollenbach(
     println(s"s_p = ${s_p}")
     println(s"N_o = ${N_o}")
     println(s"p_o = ${p_o}")
-    println(s"$t ${state.toList}")
+    //println(s"$t ${state.toList}")
 //    throw new Exception("asda")
   }
 }
@@ -159,7 +161,7 @@ class BollenbachModel extends Model {
 
   val exemplar = new Bollenbach(delta, eps_c, eps_p, eps_r, k_deg, k_p0, k_v, M_a, N_rrn,
                                 p_o, p_r, rho, s_r0, tau_C0, tau_D0, v_a)
-  val process = new ReplayProcess(exemplar.name, exemplar)
+  val process = new ReplayProcess(exemplar)
   process.Dimension(exemplar.s_ropt)
 
   override def run(t: Double, tau: Double) {
@@ -194,28 +196,28 @@ class BollenbachModel extends Model {
   }
 }
 
-trait Debug extends BaseProcess {
+trait Debug extends Process {
   def debug(t: Double): Unit
 
   object debugHandler extends StepHandler {
-    def init(t: Double, p: BaseProcess) {
+    def init(t: Double, p: Process) {
       println("debug init...")
       debug(t)
     }
-    def handleStep(t: Double, p: BaseProcess) {
+    def handleStep(t: Double, p: Process) {
       debug(t)
     }
   }
   addStepHandler(debugHandler)
 }
 
-class ReplayProcess(val name: String, proc: BaseProcess) extends BaseProcess {
+class ReplayProcess(proc: Process) extends Process {
   override def toString = proc.toString
-  leftMerge(proc)
+  merge(proc)
 
   def replay(acc: Accumulator) {
     for( (t, vs) <- acc.history ) {
-      this <<< vs
+      this.state <<< vs
       for (sh <- stepHandlers) {
         sh.handleStep(t, this)
       }

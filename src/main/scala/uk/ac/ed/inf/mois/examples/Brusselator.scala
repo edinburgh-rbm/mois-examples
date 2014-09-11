@@ -1,9 +1,11 @@
 package uk.ac.ed.inf.mois.examples
 
-import uk.ac.ed.inf.mois.{DeterministicReactionNetwork, Model}
+import uk.ac.ed.inf.mois.reaction.DeterministicReactionNetwork
+import uk.ac.ed.inf.mois.Model
+import spire.implicits._
 
 class Brusselator
-  extends DeterministicReactionNetwork("Brusselator") {
+  extends DeterministicReactionNetwork {
 
   val A = Species("A")
   val B = Species("B")

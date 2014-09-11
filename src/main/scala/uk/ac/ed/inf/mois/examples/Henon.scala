@@ -20,7 +20,10 @@ package uk.ac.ed.inf.mois.examples
 import uk.ac.ed.inf.mois.Model
 import uk.ac.ed.inf.mois.DiscreteProcess
 
-case class Hénon(a: Double, b: Double) extends DiscreteProcess("Henon") {
+import spire.implicits._
+import uk.ac.ed.inf.mois.implicits._
+
+case class Hénon(a: Double, b: Double) extends DiscreteProcess[Double] {
   val x = Double("ex:x")
   val y = Double("ex:y")
   n(x) := 1.0 - a * x*x + y
@@ -28,7 +31,12 @@ case class Hénon(a: Double, b: Double) extends DiscreteProcess("Henon") {
 }
 
 class HénonModel extends Model {
-  val a = Double("ex:a") := 1.4
-  val b = Double("ex:b") := 0.3
+  val a = Double("ex:a")
+  val b = Double("ex:b")
   val process = new Hénon(a, b)
+  override def init(t: Double) {
+    super.init(t)
+    a := 1.4
+    b := 0.3
+  }
 }

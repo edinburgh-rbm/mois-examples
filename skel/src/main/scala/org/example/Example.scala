@@ -19,7 +19,7 @@ package org.example
 
 import uk.ac.ed.inf.mois.{Model, Process}
 
-class Example extends Process("example") {
+class Example extends Process {
   /* ... */
 }
 

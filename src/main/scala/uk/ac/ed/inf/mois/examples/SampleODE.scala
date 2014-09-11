@@ -18,8 +18,10 @@
 package uk.ac.ed.inf.mois.examples
 
 import uk.ac.ed.inf.mois.{Model, ODE}
+import spire.implicits._
+import uk.ac.ed.inf.mois.implicits._
 
-class SampleODE extends ODE("SampleODE") {
+class SampleODE extends ODE {
   val x1 = Double("ex:x1")
   val x2 = Double("ex:x2")
   d(x1) := -0.3*x1 - 0.4*x2
