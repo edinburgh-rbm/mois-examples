@@ -17,11 +17,11 @@
  */
 package uk.ac.ed.inf.mois.examples
 
-import uk.ac.ed.inf.mois.{Model, ODE}
+import uk.ac.ed.inf.mois.{Model, ODE, Var}
 import spire.implicits._
 import uk.ac.ed.inf.mois.implicits._
 
-case class Roessler(a: Double, b: Double, c: Double) extends ODE {
+case class Roessler(a: Var[Double], b: Var[Double], c: Var[Double]) extends ODE {
   val x = Double("x")
   val y = Double("y")
   val z = Double("z")
@@ -31,14 +31,9 @@ case class Roessler(a: Double, b: Double, c: Double) extends ODE {
 }
 
 class RoesslerModel extends Model {
-  val a = Double("a") := 0.2
-  val b = Double("b") := 0.2
-  val c = Double("c") := 5.7
+  val a = Double("a") default(0.2)
+  val b = Double("b") default(0.2)
+  val c = Double("c") default(5.7)
 
   val process = new Roessler(a, b, c)
-
-  import process._
-  x := 0.0
-  y := 0.0
-  z := 0.0
 }

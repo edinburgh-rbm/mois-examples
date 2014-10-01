@@ -22,16 +22,12 @@ import spire.implicits._
 import uk.ac.ed.inf.mois.implicits._
 
 class SampleODE extends ODE {
-  val x1 = Double("ex:x1")
-  val x2 = Double("ex:x2")
+  val x1 = Double("ex:x1") default(25)
+  val x2 = Double("ex:x2") default(50)
   d(x1) := -0.3*x1 - 0.4*x2
   d(x2) := -0.5*x1 - 0.8*x2
 }
 
 class SampleODEModel extends Model {
   val process = new SampleODE
-  import process._
-
-  x1 := 25.0
-  x2 := 50.0
 }

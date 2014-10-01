@@ -31,12 +31,7 @@ case class Hénon(a: Double, b: Double) extends DiscreteProcess[Double] {
 }
 
 class HénonModel extends Model {
-  val a = Double("ex:a")
-  val b = Double("ex:b")
+  val a = 1.4
+  val b = 0.3
   val process = new Hénon(a, b)
-  override def init(t: Double) {
-    super.init(t)
-    a := 1.4
-    b := 0.3
-  }
 }

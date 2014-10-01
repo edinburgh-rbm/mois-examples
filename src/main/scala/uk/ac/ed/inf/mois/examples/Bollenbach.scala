@@ -45,23 +45,23 @@ class Bollenbach(
   annotate("url", List("https://www.cell.com/cell/pdf/S0092-8674(09)01315-4.pdf",
                        "https://www.cell.com/cms/attachment/604695/4793645/mmc2.pdf"))
 
-  val g = Double("g") := 1.0
+  val g = Double("g") default(1.0)
   g.annotate("long_name", "Growth Rate")
   g.annotate("units", "1/h")
 
-  val p = Double("p") := 2.4e6
+  val p = Double("p") default(2.4e6)
   p must (_ >= 0.0)
   p.annotate("long_name", "Proteins per cell")
 
-  val c = Double("c") := 1.8
+  val c = Double("c") default(1.8)
   c must (_ >= 0.0)
   c.annotate("long_name", "Genome equivalends of DNA per cell")
 
-  val r = Double("r") := 1.35e4
+  val r = Double("r") default(1.35e4)
   r must (_ >= 0.0)
   r.annotate("long_name", "Ribosomes per cell")
 
-  val a = Double("a") := 1.0
+  val a = Double("a") default(1.0)
   a must (_ >= 0.0)
   a.annotate("long_name", "Resources per cell")
 
@@ -100,69 +100,72 @@ class Bollenbach(
 }
 
 class BollenbachModel extends Model {
-  val delta = Double("delta") := 1.0
+  val delta = Double("delta") default(1.0)
   delta.annotate("long_name", "Relative change of DNA synthesis rate (< 1.0 with antibiotics")
 
-  val eps_c = Double("epsilon_c") := 0.039
+  val eps_c = Double("epsilon_c") default(0.039)
   eps_c.annotate("long_name", "Resources consumed to make one chromosome")
 
-  val eps_p = Double("epsilon_p") := 8.1e-7
+  val eps_p = Double("epsilon_p") default(8.1e-7)
   eps_c.annotate("long_name", "Resources consumed to make one protein")
 
-  val eps_r = Double("epsilon_r") := 2.2e-5
+  val eps_r = Double("epsilon_r") default(2.2e-5)
   eps_c.annotate("long_name", "Resources consumed to make one ribosome")
 
-  val k_deg = Double("k_deg") := 0.12
+  val k_deg = Double("k_deg") default(0.12)
   k_deg.annotate("long_name", "Resource degradation rate")
   k_deg.annotate("units", "1/h")
 
-  val k_p0 = Double("k_p0") := 0.059
+  val k_p0 = Double("k_p0") default(0.059)
   k_p0.annotate("long_name", "Maximal rate of protein synthesis per ribosome")
   k_p0.annotate("units", "1/s")
 
-  val k_v = Double("k_v") := 3.73e-7
+  val k_v = Double("k_v") default(3.73e-7)
   k_v.annotate("long_name", "Cell volume per protein")
   k_v.annotate("units", "1e-6 m^3")
 
-  val M_a = Double("M_a") := 0.53
+  val M_a = Double("M_a") default(0.53)
   M_a.annotate("long_name", "Resource concentration where chain elongation rates are half max")
   M_a.annotate("units", "1e-6 m^-3")
 
-  val N_rrn = Double("N_rrn") := 7.0
+  val N_rrn = Double("N_rrn") default(7.0)
   N_rrn.annotate("long_name", "Number of rrn operons per chromosome")
 
-  val p_o = Double("p_o") := 9.9e5
+  val p_o = Double("p_o") default(9.9e5)
   p_o.annotate("long_name", "Protein per replication origin")
 
-  val p_r = Double("p_r") := 20.7
+  val p_r = Double("p_r") default(20.7)
   p_r.annotate("long_name", "Amount of protein per ribosome")
 
-  val rho = Double("rho") := 1.0
+  val rho = Double("rho") default(1.0)
   rho.annotate("long_name", "Fraction of functional ribosomes (< 1.0 with antibiotic)")
 
-  val s_r0 = Double("s_r0") := 72.0
+  val s_r0 = Double("s_r0") default(72.0)
   s_r0.annotate("long_name", "Maximal rate of ribosome synthesis per rrn operon")
   s_r0.annotate("units", "1/min")
 
-  val tau_C0 = Double("tau_C0") := 33.0
+  val tau_C0 = Double("tau_C0") default(33.0)
   tau_C0.annotate("long_name", "Minimalreplication time of chromosome")
   tau_C0.annotate("units", "60 s")
 
-  val tau_D0 = Double("tau_D0") := 16.0
+  val tau_D0 = Double("tau_D0") default(16.0)
   tau_D0.annotate("long_name", "Minimal delay before cell division")
   tau_D0.annotate("units", "60 s")
 
-  val v_a = Double("v_a") := 2.42
+  val v_a = Double("v_a") default(2.42)
   v_a.annotate("long_name", "Resource influx")
   v_a.annotate("units", "1/h")
 
-  val s_rmin = Int("s_rmin") := -100
-  val s_rmax = Int("s_rmax") := 100
+  val s_rmin = Int("s_rmin") default(-100)
+  val s_rmax = Int("s_rmax") default(100)
 
-  val exemplar = new Bollenbach(delta, eps_c, eps_p, eps_r, k_deg, k_p0, k_v, M_a, N_rrn,
+  lazy val exemplar = new Bollenbach(delta, eps_c, eps_p, eps_r, k_deg, k_p0, k_v, M_a, N_rrn,
                                 p_o, p_r, rho, s_r0, tau_C0, tau_D0, v_a)
-  val process = new ReplayProcess(exemplar)
-  process.Dimension(exemplar.s_ropt)
+  lazy val process = new ReplayProcess(exemplar)
+  override def init(t: Double) {
+    super.init(t)
+    process.Dimension(exemplar.s_ropt)
+  }
 
   override def run(t: Double, tau: Double) {
     var g_max = -math.exp(100)

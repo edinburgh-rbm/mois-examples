@@ -7,10 +7,10 @@ import spire.implicits._
 class Brusselator
   extends DeterministicReactionNetwork {
 
-  val A = Species("A")
-  val B = Species("B")
-  val X = Species("X")
-  val Y = Species("Y")
+  val A = Species("A") default(1.0)
+  val B = Species("B") default(1.7)
+  val X = Species("X") default(1.0)
+  val Y = Species("Y") default(1.0)
 
   reactions(
     A --> X + A at 1.0,
@@ -26,9 +26,4 @@ class Brusselator
  */
 class BrusselatorModel extends Model {
   val process = new Brusselator
-  import process._
-  A := 1.0
-  B := 1.7
-  X := 1.0
-  Y := 1.0
 }

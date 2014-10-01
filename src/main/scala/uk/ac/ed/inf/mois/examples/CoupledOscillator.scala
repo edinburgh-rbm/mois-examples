@@ -36,14 +36,9 @@ class CoupledOscillator(w: Double, k: Double)
 }
 
 class CoupledOscillatorModel extends Model {
-  val w = Double("w")
-  val k = Double("k")
+  val w = -1.0
+  val k = 0.5
   val process = new CoupledOscillator(w, k)
-  override def init(t: Double) {
-    super.init(t)
-    w := -1.0
-    k := 0.5
-  }
 }
 
 class CoupledOscillatorA(w: Double, k: Double)
@@ -67,16 +62,11 @@ class CoupledOscillatorB(w: Double, k: Double)
 }
 
 class CoupledOscillatorGroupModel extends Model {
-  val w = Double("w")
-  val k = Double("k")
+  val w = -1.0
+  val k = 0.5
   val process = new ProcessGroup {
     scheduler = new NaiveScheduler(0.01)
   }
   process += new CoupledOscillatorA(w, k)
   process += new CoupledOscillatorB(w, k)
-  override def init(t: Double) {
-    super.init(t)
-    w := -1.0
-    k := 0.5
-  }
 }

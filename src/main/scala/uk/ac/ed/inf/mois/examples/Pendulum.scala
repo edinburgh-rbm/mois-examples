@@ -21,6 +21,7 @@ import java.lang.Math.PI
 import uk.ac.ed.inf.mois.Math
 import uk.ac.ed.inf.mois.Model
 import uk.ac.ed.inf.mois.HamiltonianProcess
+import uk.ac.ed.inf.mois.Var
 import uk.ac.ed.inf.mois.VarCalc
 import spire.implicits._
 import uk.ac.ed.inf.mois.implicits._
@@ -28,7 +29,7 @@ import uk.ac.ed.inf.mois.implicits._
 /**
  * Simulate the motion of a pendulum parametrised by mass and length
  */
-class Pendulum(m: Double, l: Double)
+class Pendulum(m: Var[Double], l: Var[Double])
      // the motion of the pendulum is defined in terms of the Hamiltonian
      extends HamiltonianProcess
      // this allows us to set variables after each integration step
@@ -74,16 +75,16 @@ class Pendulum(m: Double, l: Double)
  */
 class PendulumModel extends Model {
   // These are like variables but are actually model parameters
-  val m = Double("m")
-  val l = Double("l")
+  val m = Double("m") default(1)
+  val l = Double("l") default(1)
 
   // These variables govern the setting of initial conditions and the
   // number of times to run the simulation. Run starting at p0
   // n times and increase p0 by 0.5 each time
-  val θ_0 = Double("θ0")
-  val p_0 = Double("p0")
-  val p_n = Int("n")
-  val p_delta = Double("p_delta")
+  val θ_0 = Double("θ0") default(0)
+  val p_0 = Double("p0") default(-10)
+  val p_n = Int("n") default(41)
+  val p_delta = Double("p_delta") default(0.5)
 
   // Create the process
   val process = new Pendulum(m, l)
@@ -97,10 +98,6 @@ class PendulumModel extends Model {
 
   // Global annotations on the model
   annotate("title", "Planar Pendulum")
-  // We store and document the mass and length but not the p_*
-  // simulation parameters because they appear in the data
-  annotate("mass", m.value)
-  annotate("length", l.value)
 
   // Annotations on each variable
   E.annotate("long_name", "Total energy")
@@ -119,12 +116,12 @@ class PendulumModel extends Model {
   // We override the `init` method because we want to set initial values
   override def init(t: Double) {
     super.init(t)
-    m := 1
-    l := 1
-    θ_0 := 0
-    p_0 := -10
-    p_n := 41
-    p_delta := 0.5
+    // We store and document the mass and length but not the p_*
+    // simulation parameters because they appear in the data
+    // we use the actual value here so it is only possible within
+    // the init function
+    annotate("mass", m.value)
+    annotate("length", l.value)
   }
 
   // We override the `run` method because we want to run the simulation several
