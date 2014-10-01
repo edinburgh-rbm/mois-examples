@@ -19,7 +19,7 @@ name := "mois-examples"
 
 organization := "uk.ac.ed.inf"
 
-version := "1.99.6-SNAPSHOT"
+version := "1.99.7-SNAPSHOT"
 
 scalaVersion := "2.11.2"
 
@@ -27,7 +27,7 @@ resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repos
 
 resolvers += "ucar-unidata-releases" at "https://artifacts.unidata.ucar.edu/content/repositories/unidata-releases/"
 
-libraryDependencies += "uk.ac.ed.inf" %% "mois" % "1.99.6-SNAPSHOT" exclude("xml-apis", "xml-apis")
+libraryDependencies += "uk.ac.ed.inf" %% "mois" % "1.99.7-SNAPSHOT" exclude("xml-apis", "xml-apis")
 
 libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.0" % "test"
 
