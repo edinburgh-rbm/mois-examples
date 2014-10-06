@@ -167,7 +167,7 @@ class BollenbachModel extends Model {
     process.Dimension(exemplar.s_ropt)
   }
 
-  override def run(t: Double, tau: Double) {
+  override def run(t: Double, tau: Double, n: Int) {
     var g_max = -math.exp(100)
     var best: Accumulator = null
 
@@ -180,7 +180,12 @@ class BollenbachModel extends Model {
 
       try {
         attempt.init(t)
-        attempt(t, tau)
+        var i = 0
+        val dt = tau/n
+        while (i < n) {
+          attempt(t + i*dt, dt)
+          i += 1
+        }
         attempt.finish
 
         println(s"${s_ropt} -> g: ${attempt.g.value} (${g_max})... ")

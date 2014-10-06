@@ -127,7 +127,7 @@ class PendulumModel extends Model {
   // We override the `run` method because we want to run the simulation several
   // times, 41 times in all from various initial conditions, -10 to 10 J.s for the
   // angular momentum in steps of 0.5
-  override def run(t: Double, tau: Double) {
+  override def run(t: Double, tau: Double, n: Int) {
     for(i <- 0 until p_n) {
       θ := θ_0
       p := p_0
@@ -136,7 +136,12 @@ class PendulumModel extends Model {
       // reset all output and any internal state
       reset(t)
       // run the process
-      process(t, tau)
+      var i = 0
+      val dt = tau/n
+      while (i < n) {
+        process(t + i*dt, dt)
+        i += 1
+      }
       // the time dimension is treated automatically but the energy is not,
       // so we have to signal that we are going to the next level
       Dimension(E) += 1
