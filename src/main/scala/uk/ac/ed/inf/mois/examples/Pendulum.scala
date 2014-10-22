@@ -94,7 +94,7 @@ class PendulumModel extends Model {
 
   // E is constant to within floating point errors for each run of the simulation.
   // So best to treat it as a Dimension with 41 different values
-  Dimension(E, 41)
+  E.dimension(41)
 
   // Global annotations on the model
   annotate("title", "Planar Pendulum")
@@ -144,7 +144,7 @@ class PendulumModel extends Model {
       }
       // the time dimension is treated automatically but the energy is not,
       // so we have to signal that we are going to the next level
-      Dimension(E) += 1
+      dimension(E) += 1
     }
   }
 }

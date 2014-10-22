@@ -67,7 +67,7 @@ class Bollenbach(
 
   val s_ropt = Double("s_ropt")
   s_ropt.annotate("long_name", "Optimal regulation of ribosome synthesis")
-  Dimension(s_ropt)
+  s_ropt.dimension()
 
   @inline final def V = k_v * (p + p_r*r)
   @inline final def eta = p_r * s_r / (s_p + p_r*s_r)
@@ -164,7 +164,8 @@ class BollenbachModel extends Model {
   lazy val process = new ReplayProcess(exemplar)
   override def init(t: Double) {
     super.init(t)
-    process.Dimension(exemplar.s_ropt)
+//  XXX why was this here?
+//    process.dimension(exemplar.s_ropt)
   }
 
   override def run(t: Double, tau: Double, n: Int) {
