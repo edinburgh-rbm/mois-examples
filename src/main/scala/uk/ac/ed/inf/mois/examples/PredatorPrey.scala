@@ -25,42 +25,45 @@ import uk.ac.ed.inf.mois.implicits._
 
 class PredatorPrey(alpha: Var[Double], beta: Var[Double], gamma: Var[Double], delta: Var[Double])
     extends ODE {
-  val x = Double("x")
-  val y = Double("y")
+
+  val x = Double("pp:x")
+  val y = Double("pp:y")
   d(x) := x * (alpha - beta * y)
   d(y) := -y * (gamma - delta * x)
 }
 
 class Prey(alpha: Var[Double], beta: Var[Double]) extends ODE {
-  val x = Double("x")
-  val y = Double("y")
+  val x = Double("pp:x")
+  val y = Double("pp:y")
   d(x) := x * (alpha - beta * y)
 }
 
 class Predator(gamma: Var[Double], delta: Var[Double]) extends ODE {
-  val x = Double("x")
-  val y = Double("y")
+  val x = Double("pp:x")
+  val y = Double("pp:y")
   d(y) := -y * (gamma - delta * x)
 }
 
 class PredatorPreyModel extends Model {
-  val alpha = Double("alpha") default(1.3)
-  val beta = Double("beta") default(0.5)
-  val gamma = Double("gamma") default(1.6)
-  val delta = Double("delta") default(0.1)
-  val x = Double("x") default(1)
-  val y = Double("y") default(3)
+  prefix("pp", "https://edinburgh-rbm.github.io/mois-examples/pp#")
+  val alpha = Double("pp:alpha") param() default(1.3)
+  val beta = Double("pp:beta") param() default(0.5)
+  val gamma = Double("pp:gamma") param() default(1.6)
+  val delta = Double("pp:delta") param() default(0.1)
+  val x = Double("pp:x") default(1)
+  val y = Double("pp:y") default(3)
 
   val process = new PredatorPrey(alpha, beta, gamma, delta)
 }
 
 class PredatorPreyIndepModel extends Model {
-  val alpha = Double("alpha") default(1.3)
-  val beta = Double("beta") default(0.5)
-  val gamma = Double("gamma") default(1.6)
-  val delta = Double("delta") default(0.1)
-  val x = Double("x") default(1)
-  val y = Double("y") default(3)
+  prefix("pp", "https://edinburgh-rbm.github.io/mois-examples/pp#")
+  val alpha = Double("pp:alpha") param() default(1.3)
+  val beta = Double("pp:beta") param() default(0.5)
+  val gamma = Double("pp:gamma") param() default(1.6)
+  val delta = Double("pp:delta") param() default(0.1)
+  val x = Double("pp:x") default(1)
+  val y = Double("pp:y") default(3)
 
   val process = new ProcessGroup
   process.scheduler = new NaiveScheduler(0.1)
