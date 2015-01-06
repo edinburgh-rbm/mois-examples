@@ -17,13 +17,14 @@
  */
 package uk.ac.ed.inf.mois.examples
 
-import uk.ac.ed.inf.mois.{Model, ODE, ProcessGroup}
+import uk.ac.ed.inf.mois.{Model, ProcessGroup}
+import uk.ac.ed.inf.mois.ode.ApacheODE
 import uk.ac.ed.inf.mois.sched.NaiveScheduler
 import spire.implicits._
 import uk.ac.ed.inf.mois.implicits._
 
 class CoupledOscillator(w: Double, k: Double)
-    extends ODE {
+    extends ApacheODE {
   val x1 = Double("c:x1")
   val x2 = Double("c:x2")
   val x3 = Double("c:x3")
@@ -42,7 +43,7 @@ class CoupledOscillatorModel extends Model {
 }
 
 class CoupledOscillatorA(w: Double, k: Double)
-    extends ODE {
+    extends ApacheODE {
   val x1 = Double("d:x1")
   val x2 = Double("d:x2")
   val x3 = Double("d:x3")
@@ -52,7 +53,7 @@ class CoupledOscillatorA(w: Double, k: Double)
 }
 
 class CoupledOscillatorB(w: Double, k: Double)
-    extends ODE {
+    extends ApacheODE {
   val x1 = Double("d:x1")
   val x3 = Double("d:x3")
   val x4 = Double("d:x4")

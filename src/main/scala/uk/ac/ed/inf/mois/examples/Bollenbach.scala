@@ -17,7 +17,8 @@
  */
 package uk.ac.ed.inf.mois.examples
 
-import uk.ac.ed.inf.mois.{Accumulator, Process, ConstraintViolation, StepHandler, Math, Model, ODE, VarCalc}
+import uk.ac.ed.inf.mois.{Accumulator, Process, ConstraintViolation, StepHandler, Math, Model, VarCalc}
+import uk.ac.ed.inf.mois.ode.ApacheODE
 import spire.implicits._
 import uk.ac.ed.inf.mois.implicits._
 
@@ -38,7 +39,7 @@ class Bollenbach(
   val tau_C0: Double,
   val tau_D0: Double,
   val v_a: Double
-  ) extends ODE with VarCalc with Math {
+  ) extends ApacheODE with VarCalc with Math {
 
   annotate("title", "Nonoptimal Microbial Response to Antibiotics Underlies Suppressive Drug Interactions")
   annotate("author", List("Tobias Bollenbach", "Selwyn Quan", "Remy Chait", "Roy Kishony"))

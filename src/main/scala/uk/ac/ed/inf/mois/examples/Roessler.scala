@@ -17,11 +17,12 @@
  */
 package uk.ac.ed.inf.mois.examples
 
-import uk.ac.ed.inf.mois.{Model, ODE, Var}
+import uk.ac.ed.inf.mois.{Model, Var}
+import uk.ac.ed.inf.mois.ode.ApacheODE
 import spire.implicits._
 import uk.ac.ed.inf.mois.implicits._
 
-case class Roessler(a: Var[Double], b: Var[Double], c: Var[Double]) extends ODE {
+case class Roessler(a: Var[Double], b: Var[Double], c: Var[Double]) extends ApacheODE {
   val x = Double("x")
   val y = Double("y")
   val z = Double("z")
