@@ -1,11 +1,13 @@
 package uk.ac.ed.inf.mois.examples
 
+import uk.ac.ed.inf.mois.ode.Rosenbrock
 import uk.ac.ed.inf.mois.reaction.DeterministicReactionNetwork
 import uk.ac.ed.inf.mois.Model
+import spire.math.Jet
 import spire.implicits._
 
 class Brusselator
-  extends DeterministicReactionNetwork {
+  extends DeterministicReactionNetwork[Double, Jet[Double]] with Rosenbrock {
 
   val A = Species("A") default(1.0)
   val B = Species("B") default(1.7)

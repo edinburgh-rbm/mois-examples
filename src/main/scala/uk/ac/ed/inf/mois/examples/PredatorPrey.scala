@@ -18,14 +18,14 @@
 package uk.ac.ed.inf.mois.examples
 
 import uk.ac.ed.inf.mois.{Model, ProcessGroup, Var}
-import uk.ac.ed.inf.mois.ode.ApacheODE
+import uk.ac.ed.inf.mois.ode.{ODE, Apache}
 import uk.ac.ed.inf.mois.sched.NaiveScheduler
 import spire.algebra.Rig
 import spire.implicits._
 import uk.ac.ed.inf.mois.implicits._
 
 class PredatorPrey(alpha: Var[Double], beta: Var[Double], gamma: Var[Double], delta: Var[Double])
-    extends ApacheODE {
+    extends ODE[Double, Double] with Apache {
 
   val x = Double("pp:x")
   val y = Double("pp:y")
@@ -33,13 +33,13 @@ class PredatorPrey(alpha: Var[Double], beta: Var[Double], gamma: Var[Double], de
   d(y) := -y * (gamma - delta * x)
 }
 
-class Prey(alpha: Var[Double], beta: Var[Double]) extends ApacheODE {
+class Prey(alpha: Var[Double], beta: Var[Double]) extends ODE[Double, Double] with Apache {
   val x = Double("pp:x")
   val y = Double("pp:y")
   d(x) := x * (alpha - beta * y)
 }
 
-class Predator(gamma: Var[Double], delta: Var[Double]) extends ApacheODE {
+class Predator(gamma: Var[Double], delta: Var[Double]) extends ODE[Double, Double] with Apache {
   val x = Double("pp:x")
   val y = Double("pp:y")
   d(y) := -y * (gamma - delta * x)
